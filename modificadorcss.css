@@ -1,0 +1,112 @@
+body {
+    text-align: center;
+    background-color: rgb(31, 29, 29);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+p {
+color: cornsilk;
+text-shadow: black ;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+ol {
+    text-align: left;
+    color:cornsilk; 
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h1 {
+color: rgb(0, 0, 0);
+background-color: cornsilk;
+text-align: center;
+font-family: 'Zen Tokyo Zoo', Impact, Haettenschweiler, sans-serif ;
+padding-left: 10px;
+}
+h2 {
+color: cornsilk;
+font-family: 'Zen Tokyo Zoo', Impact, Haettenschweiler, sans-serif ;
+text-align: center;
+margin-left: 10px;
+}
+div#iInterface {
+    background-color: black;
+    width: 795px;
+    margin: auto;
+    box-shadow: rgba(255, 255, 255, 0.3);
+    border-style: solid;
+    border-color: cornsilk;
+    border-radius: 5px;
+
+    height: 700px;
+    position: solid;
+    box-shadow: inset 0 0 10px 1px cornsilk;
+    }
+li {
+    font-weight: bold
+}
+img#iFotoPerfil {
+    width: 130px;
+    margin: -150px 50px 10px 800px;
+    display: flex;
+}
+div#iLateral {
+    background-color: black;
+    width: 190px;
+    margin: auto;
+    border-style: solid;
+    border-color: cornsilk;
+    border-radius: 5px;
+    color: cornsilk;
+    position: solid;
+    height: 500px;
+    box-shadow: inset 0 0 10px 1px cornsilk;
+
+}
+footer {
+    color: cornsilk;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 10px;
+}
+div#iCabecalho {
+    background-color: black;
+    width: 1000px;
+    margin: auto;
+    border-style: solid;
+    border-color: cornsilk;
+    border-radius: 5px;
+    color: cornsilk;
+    height: 190px;
+    box-shadow: inset 0 0 10px 1px cornsilk;
+}
+aside {
+    margin-top: -733px;
+    margin-left: 810px;
+}
+section {
+    margin-top: 8px;
+    margin-right: 207px;
+}
+header {
+    margin-top: 50px;
+    margin-bottom: 5px;
+}
+img#iWhatsapp {
+    width: 100px;
+}
+img#iGithub {
+    width: 100px;
+}
+img#iLinkedin {
+    width: 100px;
+}
+img#iEmail {
+    width: 90px;
+    margin-top: 10px;
+
+}
+img#iDev {
+    width: 190px;
+    margin-bottom: 5px;
+    border-style: solid;
+    border-color: cornsilk;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 2px cornsilk;
+}
