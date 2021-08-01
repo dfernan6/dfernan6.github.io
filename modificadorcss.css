@@ -1,22 +1,23 @@
-body {
-    text-align: center;
-    background-color: rgb(31, 29, 29);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+:root, body, html {
+     background-color: rgb(28,28,28);
+        box-sizing: content-box;
+    }
+    html{
+
+        height: 100%;
+    
+    }
 p {
 color: cornsilk;
 text-shadow: black ;
 font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-ol {
-    text-align: left;
-    color:cornsilk; 
-font-family: Verdana, Geneva, Tahoma, sans-serif;
+text-align: left;
+margin-left: 10px;
 }
 h1 {
 color: rgb(0, 0, 0);
 background-color: cornsilk;
-text-align: center;
+text-align: left;
 font-family: 'Zen Tokyo Zoo', Impact, Haettenschweiler, sans-serif ;
 padding-left: 10px;
 }
@@ -25,88 +26,192 @@ color: cornsilk;
 font-family: 'Zen Tokyo Zoo', Impact, Haettenschweiler, sans-serif ;
 text-align: center;
 margin-left: 10px;
+font-size: 35px;
 }
-div#iInterface {
-    background-color: black;
-    width: 795px;
-    margin: auto;
-    box-shadow: rgba(255, 255, 255, 0.3);
-    border-style: solid;
-    border-color: cornsilk;
-    border-radius: 5px;
-
-    height: 700px;
-    position: solid;
-    box-shadow: inset 0 0 10px 1px cornsilk;
-    }
 li {
-    font-weight: bold
+    font-weight: bold;
+    color: cornsilk;
+    text-align: left;
 }
 img#iFotoPerfil {
-    width: 130px;
-    margin: -150px 50px 10px 800px;
-    display: flex;
+    width: 120px;
+    margin-top: -130px;
+    margin-left: 10px;
+    position: absolute;
 }
 div#iLateral {
     background-color: black;
-    width: 190px;
-    margin: auto;
+    width: 180px;
+    margin-left: 458px;
+    margin-top: 5px;
     border-style: solid;
     border-color: cornsilk;
     border-radius: 5px;
     color: cornsilk;
     position: solid;
-    height: 500px;
-    box-shadow: inset 0 0 10px 1px cornsilk;
-
+    height: 300px;
+    box-shadow: inset 0 0 5px 1px cornsilk;
+}
+div#iInterface {
+    background-color: black;
+    width: 450px;
+    margin-left: -95px;
+    border-style: solid;
+    border-color: cornsilk;
+    border-radius: 5px;
+    color: cornsilk;
+    position: solid;
+    height: 470px;
+    box-shadow: inset 0 0 5px 1px cornsilk;
+    margin-top: 5px;
+}
+div#iCabecalho {
+    background-color: black;
+    width: 640px;
+    margin: auto;
+    border-style: solid;
+    border-color: cornsilk;
+    border-radius: 5px;
+    color: cornsilk;
+    height: 210px;
+    box-shadow: inset 0 0 5px 1px cornsilk;
 }
 footer {
     color: cornsilk;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-top: 10px;
-}
-div#iCabecalho {
-    background-color: black;
-    width: 1000px;
     margin: auto;
-    border-style: solid;
-    border-color: cornsilk;
-    border-radius: 5px;
-    color: cornsilk;
-    height: 190px;
-    box-shadow: inset 0 0 10px 1px cornsilk;
+    text-align: center;
+    font-size: 12px;
+    clear: both;
+    width: 450px;
 }
-aside {
-    margin-top: -733px;
-    margin-left: 810px;
-}
-section {
-    margin-top: 8px;
-    margin-right: 207px;
-}
+ section {
+    background-color: rgb(28,28,28);
+    width: 450px;
+    margin: auto;
+    }
 header {
-    margin-top: 50px;
-    margin-bottom: 5px;
+    margin: auto;
+    width: 640px;
 }
 img#iWhatsapp {
-    width: 100px;
+    width: 30px;
+    margin-left: 5px;
 }
 img#iGithub {
-    width: 100px;
+    width: 30px;
 }
 img#iLinkedin {
-    width: 100px;
+    width: 30px;
 }
 img#iEmail {
-    width: 90px;
+    width: 30px;
     margin-top: 10px;
+    margin-left: 5px;
 
 }
 img#iDev {
-    width: 190px;
-    margin-bottom: 5px;
+    width: 172px;
     border-style: solid;
     border-color: cornsilk;
     border-radius: 5px;
-    box-shadow: 0 0 10px 2px cornsilk;
+    box-shadow: 0 0 2px 2px cornsilk;
+    margin-left: 460px;
+    margin-top: -70px;
+}span:hover {
+    background-color: cornsilk;
+    color:black;  
+}
+span:active{
+    color: black;
+    background-color: white;
+}
+img#iTrybe {
+    width: 150px;
+    margin-top: 5px;
+    margin-left: 489px;
+}
+p#iPrimeiroTxt {
+    text-align: center;
+    font-size: 12px;
+}
+p#iTopo {
+text-align: right;
+color: black;
+margin-top: -60px;
+margin-bottom: -5px;
+padding-right: 10px;
+font-family: 'Fuggles', cursive;
+font-size: 40px;
+}
+nav#iMenu {
+    display: block;
+    position: inherit;
+    width: 700px;
+    margin: -17px 0px -22px -43px
+    
+}
+nav#iMenu ul {
+    list-style: none;
+    text-transform: uppercase;
+}
+nav#iMenu li {
+    display: inline-block;
+    background-color: cornsilk;
+    font-size: 11px;
+}
+a {
+    color: black;
+    padding: 4px;
+    text-decoration: none;
+}
+nav#iMenu li:hover {
+    background-color: black;
+    transition: 1s;
+    
+}
+a:hover {
+    color: cornsilk;
+}
+nav#iMenu li:active {
+    background-color: white;
+    transition: none;
+}
+a:active {
+    color:black;
+}
+.cFooter {
+color: cornsilk;
+}
+.cFooter:hover {
+    color: white;
+    text-decoration: underline;
+}
+.cFooter:active {
+    color: cornsilk;
+    text-decoration: underline;
+}
+
+img#iIcone{
+    width: 100px;
+    margin-left: 530px;
+    margin-top: -120px;
+    position: absolute;
+}
+.cImgContato {
+    margin-top: 10px;
+    margin-left: 1px;
+}
+p#iContato{
+    font-size: 10px;
+    color: white;
+    font-style: italic;
+}
+p#iFooter{
+    text-align: center;
+    margin-bottom: -2px;
+    color: white;
+}
+div#iPrincipal {
+position: absolute;;
 }
