@@ -61,7 +61,7 @@ div#iInterface {
     border-radius: 5px;
     color: cornsilk;
     position: solid;
-    height: 470px;
+    height: 414px;
     box-shadow: inset 0 0 5px 1px cornsilk;
     margin-top: 5px;
 }
@@ -83,7 +83,8 @@ footer {
     text-align: center;
     font-size: 12px;
     clear: both;
-    width: 450px;
+    width: 640px;
+    height: 75px;
 }
  section {
     background-color: rgb(28,28,28);
@@ -128,8 +129,7 @@ span:active{
 }
 img#iTrybe {
     width: 150px;
-    margin-top: 5px;
-    margin-left: 489px;
+    margin-top: -30px;
 }
 p#iPrimeiroTxt {
     text-align: center;
@@ -160,7 +160,7 @@ nav#iMenu li {
     background-color: cornsilk;
     font-size: 11px;
 }
-a {
+a#iNav {
     color: black;
     padding: 4px;
     text-decoration: none;
@@ -170,14 +170,14 @@ nav#iMenu li:hover {
     transition: 1s;
     
 }
-a:hover {
+a#iNav:hover {
     color: cornsilk;
 }
 nav#iMenu li:active {
     background-color: white;
     transition: none;
 }
-a:active {
+a#iNav:active {
     color:black;
 }
 .cFooter {
@@ -214,4 +214,7 @@ p#iFooter{
 }
 div#iPrincipal {
 position: absolute;;
+}
+a#iTrybe{
+    margin-left: 450px;
 }
