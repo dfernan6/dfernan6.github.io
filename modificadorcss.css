@@ -93,6 +93,7 @@ footer {
     }
 header {
     margin: auto;
+    display: flex;
     width: 640px;
 }
 img#iWhatsapp {
