@@ -50,7 +50,7 @@ background-color: rgb(255, 255, 255);
 margin: auto;
 text-align: center;
 font-family: 'Zen Tokyo Zoo', Impact, Haettenschweiler, sans-serif ;
-font-size: clamp(20px, 5vw, 40px);
+font-size: 20px;
 
 }
 h2 {
@@ -181,7 +181,7 @@ nav#iMenu {
     display: inline-flex;
     position: relative;
     max-width: 600px;
-    margin: -17px 0px -19px -43px;
+    margin: 0px 0px -16px -40px;
 }
     
 nav#iMenu ul {
@@ -221,18 +221,10 @@ a#iNav:active {
 }
 
 img#iIcone{
-    width: clamp(50px, 50vw, 100px);
-    height: clamp(45px, 50vw, 90px);
-    margin-left: 3px;
-    margin-top: 10px;
-}
-
-div#painel {
-    display: inline-flex;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    margin: auto;
+    width: clamp(28px, 50vw, 50px);
+    height: clamp(23px, 50vw, 47px);
+    margin-left: 100px;
+    margin-top: -34px;
 }
 
 p#iFooter{
@@ -268,3 +260,9 @@ img#sos {
   gap: 1rem;
 }
 
+article {
+    width: clamp(75px, 30vh, 150px);
+    position: fixed;
+    padding: 1rem;
+    z-index: 1000; 
+}
