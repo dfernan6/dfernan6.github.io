@@ -2,7 +2,7 @@ export default function Home() {
   return (
    <div>
     <h1>
-      Hello World!
+      <a href="https://dfernan6.vercel.app/condicional/faq"> FAQ </a>
     </h1>
    </div>
   )
