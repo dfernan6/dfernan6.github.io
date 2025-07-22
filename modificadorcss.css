@@ -28,7 +28,7 @@
 
 p {
     font-size: 10px;
-color: rgb(196, 194, 187);
+color: rgb(99 99 99);
 text-shadow: black ;
 font-family: Verdana, Geneva, Tahoma, sans-serif;
 text-align: left;
@@ -48,18 +48,27 @@ h1 {
 color: rgb(0, 0, 0);
 background-color: rgb(255, 255, 255);
 margin: auto;
-text-align: center;
+text-align: left;
 font-family: 'Zen Tokyo Zoo', Impact, Haettenschweiler, sans-serif ;
 font-size: 20px;
 
 }
 h2 {
-color: rgb(255, 255, 255);
+color: rgb(87, 87, 87);
 font-family: 'Zen Tokyo Zoo', Impact, Haettenschweiler, sans-serif ;
 text-align: center;
 margin-left: 10px;
-font-size: 35px;
+font-size: 18px;
 }
+
+h3 {
+color: rgb(139, 139, 139);
+font-family: 'Zen Tokyo Zoo', Impact, Haettenschweiler, sans-serif ;
+text-align: left;
+margin-left: 10px;
+font-size: 14px;
+}   
+
 li {
     font-weight: bold;
     color: rgb(207, 206, 201);
@@ -77,7 +86,7 @@ div#iFooter {
 }
 
 div#iInterface {
-    background-color: #ffffff;
+    background-color: #f6f7f5;
     max-width: 600px;
     border-style: solid;
     border-color: rgb(255, 255, 255);
