@@ -1,2 +1,2 @@
 import { createContext } from 'react';
-export const ContadorContexto = createContext('');
+export const ContadorContexto = createContext(' ');
