@@ -18,6 +18,7 @@ export default function handler(
           <body>
             <b>Hora certa:</b>
             ${new Date().toLocaleTimeString('pt-BR')}
+            <a href="/">Voltar</a>
           </body>
         </html>
     `)

@@ -2,6 +2,7 @@ import Background from "@/components/starWars/Background";
 import Filmes from "@/components/starWars/Filmes";
 import Personagens from "@/components/starWars/Personagens";
 import useStarWars from "@/data/hooks/useStarWars";
+import Link from "next/link";
 
 export default function PaginaStarWars() {
     const { processando, personagens, filmes, voltar, selecionarPersonagem } = useStarWars()
@@ -23,6 +24,7 @@ export default function PaginaStarWars() {
                 <div> Nenhum personagem encontrado</div>
             )
             } 
+            <Link href="/">Voltar</Link>
         </div>
     )
 }

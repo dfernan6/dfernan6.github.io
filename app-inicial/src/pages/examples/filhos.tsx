@@ -1,6 +1,7 @@
 import Caixa from "@/components/examples/filhos/Caixa";
 import Grade from "@/components/examples/filhos/Grade";
 import Pagina from "@/components/template/Pagina";
+import Link from "next/link";
 
 export default function PaginaFilhos() {
     return (
@@ -19,6 +20,7 @@ export default function PaginaFilhos() {
                     <span><b>9</b></span>
                 </Caixa>
             </Grade>
+            <Link href="/">Voltar</Link>
         </Pagina>
     )
 }

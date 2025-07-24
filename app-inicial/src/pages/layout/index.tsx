@@ -1,4 +1,5 @@
 import Grid from "@/components/layout/Grid";
+import Link from "next/link";
 
 export default function PaginaLayout() {
     return (
@@ -14,6 +15,7 @@ export default function PaginaLayout() {
                 <div className="h-36 w-full bg-rose-500">#7</div>
                 <div className="h-36 w-full bg-red-500">#8</div>
             </Grid>
+            <Link href="/">Voltar</Link>
             </div>
         </div>
     )

@@ -4,6 +4,7 @@ import MenuItem from "@/components/template/MenuItem"
 import { Icon360View, IconArrowMoveDown, IconArrowMoveUp, IconArrowsDiff, IconClick, IconClock, IconH1, IconSitemap, IconSourceCode, IconTable } from "@tabler/icons-react"
 import Linha from "@/components/layout/Linha"
 import Link from 'next/link'
+import reportWebVitals from '@/reportWebVitals'
 import Navegador from '../components/Navegador'
 
 export default function Inicio() {
@@ -125,9 +126,6 @@ export default function Inicio() {
     <Navegador texto="Componente com Estado" destino="/estado" /><br></br>
     <Navegador texto="Integração com API #01" destino="/integracao_1" /><br></br>
     <Navegador texto="Conteúdo estático" destino="/estatico" />
-    <p>
-      {JSON.stringify({nome: 'João', idade: 30})}
-    </p>
     </div>
     </Pagina>
   )

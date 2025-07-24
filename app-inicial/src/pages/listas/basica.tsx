@@ -1,5 +1,6 @@
 import TabelaSerieA from "@/components/listas/TabelaSerieA"
 import { IconBallFootball } from "@tabler/icons-react"
+import Link from "next/link"
 
 export default function PaginaListaBasica() {
     const times = [	
@@ -36,6 +37,7 @@ export default function PaginaListaBasica() {
             Tabela série A
             </h1>
             <TabelaSerieA times={times}/>
+            <Link href="/">Voltar</Link>
         </div>
     )
 }

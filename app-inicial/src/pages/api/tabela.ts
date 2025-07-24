@@ -27,6 +27,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 				<table border="1">
 					${linhasEColunas(colunas, linhas)}
 				</table>
+				<a href="/">Voltar</a>
 			</body>
 		</html>
 	`)

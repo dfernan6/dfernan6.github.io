@@ -1,5 +1,6 @@
 import Contador from "@/components/hooks/Contador";
 import Background from "@/components/starWars/Background";
+import Link from "next/link";
 
 export default function PaginaContador() {
     return (
@@ -9,6 +10,7 @@ export default function PaginaContador() {
         `}>
             <Contador />
             <Background />
+            <Link href="/">Voltar</Link>
         </div>
     )
 }

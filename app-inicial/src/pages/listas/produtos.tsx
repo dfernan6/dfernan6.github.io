@@ -4,6 +4,7 @@ import produtos from "@/constants/produtos";
 import ItemCarrinho from "@/model/ItemCarrinho";
 import Produto from "@/model/Produto";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function PaginaProdutos() {
    
@@ -16,12 +17,17 @@ export default function PaginaProdutos() {
         setItens([...outrosItems, novoItem])
         }
     return (
+        <div>
         <div className={`
         flex flex-col justify-center items-center
         h-screen p-2 gap-2
         `}>
             <Carrinho itens={itens} />
             <ListaProdutos produtos={produtos} comprar={adicionarProduto} />
+            
+        </div>
+        
+        <Link href="/">Voltar</Link>
         </div>
     )
 }

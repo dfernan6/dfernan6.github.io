@@ -1,4 +1,5 @@
 import Evento from "@/components/basicos/Evento";
+import Link from "next/link";
 
 export default function PaginaEventos() {
     return (
@@ -9,6 +10,7 @@ export default function PaginaEventos() {
             <Evento />
             <Evento />
             <Evento />
+            <Link href="/">Voltar</Link>
         </div>
     )
 }

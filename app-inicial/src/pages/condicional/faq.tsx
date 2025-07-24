@@ -1,4 +1,5 @@
 import Faq from "@/components/condicional/Faq";
+import Link from "next/link";
 
 
 export default function PaginaFaq() {
@@ -6,6 +7,7 @@ export default function PaginaFaq() {
         <div className={`flex justify-center
         h-screen mt-10`}>
             <Faq />
+        <Link href="/">Voltar</Link>
         </div>
     )
 

@@ -1,4 +1,5 @@
 import ImagemAleatoria from "@/components/hooks/ImagenAleatoria";
+import Link from "next/link";
 
 export default function PaginaImagens() {
     return (
@@ -9,6 +10,7 @@ export default function PaginaImagens() {
             <ImagemAleatoria />
             <ImagemAleatoria />
             <ImagemAleatoria />
+            <Link href="/">Voltar</Link>
         </div>
     )
 }
