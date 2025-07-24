@@ -32,10 +32,8 @@ color: rgb(99 99 99);
 text-shadow: black ;
 font-family: Verdana, Geneva, Tahoma, sans-serif;
 text-align: left;
-margin-left: 10px;
+margin: auto;
 overflow: hidden;
-text-overflow: ellipsis;
-white-space: nowrap;
 }
 
 h1.exp {
@@ -54,19 +52,20 @@ font-size: 20px;
 
 }
 h2 {
-color: rgb(87, 87, 87);
+color: rgb(255, 255, 255);
+background-color: #000000;
 font-family: 'Zen Tokyo Zoo', Impact, Haettenschweiler, sans-serif ;
 text-align: center;
-margin-left: 10px;
+margin-left: auto;
 font-size: 18px;
 }
 
 h3 {
-color: rgb(139, 139, 139);
+color: rgb(73 73 73);
 font-family: 'Zen Tokyo Zoo', Impact, Haettenschweiler, sans-serif ;
 text-align: left;
 margin-left: 10px;
-font-size: 14px;
+font-size: 20px;
 }   
 
 li {
@@ -88,10 +87,6 @@ div#iFooter {
 div#iInterface {
     background-color: #f6f7f5;
     max-width: 600px;
-    border-style: solid;
-    border-color: rgb(255, 255, 255);
-    /* border-radius: 5px; */
-    color: white;
     position: solid;
     height: 100%;
     margin-top: 8px;
@@ -274,4 +269,27 @@ article {
     position: fixed;
     padding: 1rem;
     z-index: 1000; 
+}
+
+.descricao {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(207, 206, 201);
+}
+
+a {
+    margin: auto;
+}
+
+.linkImg {
+    width: 300px;
+    margin: auto;
+    border: solid;
+    border-radius: 130px;
+    margin-top: 5px;
+}
+
+.descricaoTexto {
+    margin: auto;
+    max-width: 275px;
 }
