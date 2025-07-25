@@ -12,7 +12,7 @@ export default function ProdutoItem(props: ProdutoItemProps) {
     return (
         <div className={`items-center
         flex flex-col border border-zinc-800
-       rounded-md bg-white
+       rounded-md bg-gray-600
         `}>
             <div className={`
             font-bold

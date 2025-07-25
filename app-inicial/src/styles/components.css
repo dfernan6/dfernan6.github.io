@@ -5,7 +5,6 @@
 }
 
 .entrada {
-    @apply bg-black px-3 py-2;
     @apply text-white outline-none;
     @apply rounded-md border border-blue-500;
 }

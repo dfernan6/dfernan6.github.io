@@ -12,8 +12,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 				<meta charset="utf-8">
 				<style>
 					html {
-						background-color: #333;
-						color: #eee;
+                color: #8a8a8a;
+                background-color: #dbdbdb;
+                font-size: 10px;
 					}
 
 					table {

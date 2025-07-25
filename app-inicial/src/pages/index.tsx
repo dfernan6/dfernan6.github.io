@@ -1,11 +1,13 @@
 import Pagina from "@/components/template/Pagina"
 import Menu from "@/components/template/Menu"
 import MenuItem from "@/components/template/MenuItem"
-import { Icon360View, IconAdOff, IconArrowMoveDown, IconArrowMoveUp, IconArrowsDiff, IconClick, IconClock, IconH1, IconSitemap, IconSourceCode, IconTable } from "@tabler/icons-react"
+import { Icon360View, Icon3dCubeSphere, IconAdOff, IconArrowMoveDown, IconArrowMoveUp, IconArrowsDiff, IconClick, IconClock, IconClock12, IconClock2, IconH1, IconList, IconPhotoCheck, IconPlus, IconSitemap, IconSourceCode, IconTable, IconUniverse } from "@tabler/icons-react"
 import Linha from "@/components/layout/Linha"
 import Link from 'next/link'
 import reportWebVitals from '@/reportWebVitals'
 import Navegador from '../components/Navegador'
+import { IconAdjustmentsQuestion } from "@tabler/icons-react"
+import Image from "next/image"
 
 export default function Inicio() {
   return (
@@ -14,7 +16,7 @@ export default function Inicio() {
   <Menu>
     <Linha>
     <MenuItem 
-    icone={<IconSourceCode />}
+    icone={<IconClock2 />}
     url="/hora.html"
     className="botao"
     >
@@ -22,7 +24,7 @@ export default function Inicio() {
       Hora (Estático)
     </MenuItem>
     <MenuItem 
-    icone={<IconSourceCode />}
+    icone={<IconClock12 />}
     url="/horaAtual.html"
     className="botao"
     >
@@ -44,14 +46,6 @@ export default function Inicio() {
     >
 
       Tabela
-    </MenuItem>
-    <MenuItem
-    icone={<IconArrowsDiff />}
-    url="/api/usuarios"
-    className="botao"
-    >
-
-      API de usuários
     </MenuItem>
     <MenuItem
     icone={<Icon360View />}
@@ -79,11 +73,11 @@ export default function Inicio() {
     </MenuItem>
     <MenuItem
     icone={<IconClick />}
-    url="/examples/evento"
+    url="/listas/produtos"
     className="botao"
     >
 
-      Evento
+      Produtos
     </MenuItem>
     <MenuItem
     icone={<IconArrowMoveDown />}
@@ -102,39 +96,54 @@ export default function Inicio() {
       Comunicação indireta
     </MenuItem>
         <MenuItem
-    icone={<IconAdOff />}
+    icone={<IconUniverse/>}
     url="/starwars"
     className="botao"
     >
 
       Starwars
     </MenuItem>
+            <MenuItem
+    icone={<IconAdjustmentsQuestion />}
+    url="/condicional/faq"
+    className="botao"
+    >
+
+      FAQ
+    </MenuItem>
+            <MenuItem
+    icone={<IconList />}
+    url="listas/basica"
+    className="botao"
+    >
+
+      Lista básica
+    </MenuItem>
+            <MenuItem
+    icone={<IconPlus />}
+    url="/hooks/contador"
+    className="botao"
+    >
+
+      Contador
+    </MenuItem>
+            <MenuItem
+    icone={<IconPhotoCheck />}
+    url="/hooks/imagens"
+    className="botao"
+    >
+
+      API de imagens
+    </MenuItem>
     </Linha>
   </Menu>
   </div>
-   <div >
-    <h1>
-      <a href="https://dfernan6.vercel.app/condicional/faq" > FAQ </a>
-      <a href="https://dfernan6.vercel.app/basicos/caixa">Caixa</a>
-      <a href="https://dfernan6.vercel.app/basicos/circulos">Circulos</a>
-      <a href="https://dfernan6.vercel.app/basicos/eventos">Eventos</a>
-      <a href="https://dfernan6.vercel.app/basicos/primeiro">Primeiro componente</a>
-      <a href="https://dfernan6.vercel.app/hooks/contador">Contador</a>
-      <a href="https://dfernan6.vercel.app/hooks/imagens ">API de imagens</a>
-      <a href="https://dfernan6.vercel.app/layout">Aparência</a>
-      <a href="https://dfernan6.vercel.app/listas/produtos">Produtos</a>
-      <a href="https://dfernan6.vercel.app/listas/basica"></a>
-      <a href="https://dfernan6.vercel.app/starwars"></a>
-    </h1>
-   </div>
-    <div>
-    <Navegador texto="Layout" destino="/layout" /><br></br>
-    <Navegador texto="Navegação #01" destino="/navegacao" /> <br></br>
-    <Navegador texto="Navegaçã0 #02" destino="/cliente/sp-2/123" /> <br></br>
-    <Navegador texto="Componente com Estado" destino="/estado" /><br></br>
-    <Navegador texto="Integração com API #01" destino="/integracao_1" /><br></br>
-    <Navegador texto="Conteúdo estático" destino="/estatico" />
-    </div>
+  <div>
+  <p><i>Fique à vontade para consultar os CODES da aplicação no repositório <b>GitHub</b></i></p>
+  <a href="https://github.com/dfernan6/dfernan6.github.io/tree/master" target="_blank" rel="noreferrer">
+  <img src="/github.png" className="git" alt="https://github.com/dfernan6/Curso-e-codigos-em-praticas/tree/master/react-fundamentals" />
+  </a>
+  </div>
     </Pagina>
   )
 }

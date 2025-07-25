@@ -9,9 +9,9 @@ export default function handler(
           <head>
             <style>
               html {
+                color: #8a8a8a;
+                background-color: #dbdbdb;
                 font-size: 5rem;
-                background-color: #333;
-                color: #eee;
               }
             </style>
           </head>

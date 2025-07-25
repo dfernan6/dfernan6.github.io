@@ -9,7 +9,6 @@ export default function PaginaContador() {
         h-screen
         `}>
             <Contador />
-            <Background />
             <Link href="/">Voltar</Link>
         </div>
     )

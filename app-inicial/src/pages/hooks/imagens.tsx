@@ -1,16 +1,16 @@
 import ImagemAleatoria from "@/components/hooks/ImagenAleatoria";
+import Pagina from "@/components/template/Pagina";
 import Link from "next/link";
 
 export default function PaginaImagens() {
     return (
+        <Pagina>
         <div className={`
-        flex justify-center items-center h-screen
         gap-5
         `}>
             <ImagemAleatoria />
-            <ImagemAleatoria />
-            <ImagemAleatoria />
             <Link href="/">Voltar</Link>
         </div>
+        </Pagina>
     )
 }

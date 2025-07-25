@@ -3,12 +3,11 @@ import Pagina from "@/components/template/Pagina";
 
 export default function Simples() {
     return (
-        
-        <div>
-            <Pagina>
+        <Pagina>
+        <div>           
             <p>Componente Simples</p>
-            <Link href="/">Voltar</Link>
-            </Pagina>
+            <Link href="/">Voltar</Link>          
         </div>
+        </Pagina>
         )
 }

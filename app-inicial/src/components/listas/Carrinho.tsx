@@ -14,7 +14,7 @@ export default function Carrinho(props: CarrinhoProps) {
     return (
         <div className="flex w-full">
             <div className={`
-            bg-slate-200 p-3 mt-20 border border-cyan-500
+            bg-blue-600 p-3 mt-20 border border-cyan-500
             `}>
                 Carrinho {Moeda.formatar(total)}
             </div>
