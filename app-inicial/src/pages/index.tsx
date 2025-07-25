@@ -1,7 +1,7 @@
 import Pagina from "@/components/template/Pagina"
 import Menu from "@/components/template/Menu"
 import MenuItem from "@/components/template/MenuItem"
-import { Icon360View, IconArrowMoveDown, IconArrowMoveUp, IconArrowsDiff, IconClick, IconClock, IconH1, IconSitemap, IconSourceCode, IconTable } from "@tabler/icons-react"
+import { Icon360View, IconAdOff, IconArrowMoveDown, IconArrowMoveUp, IconArrowsDiff, IconClick, IconClock, IconH1, IconSitemap, IconSourceCode, IconTable } from "@tabler/icons-react"
 import Linha from "@/components/layout/Linha"
 import Link from 'next/link'
 import reportWebVitals from '@/reportWebVitals'
@@ -100,6 +100,14 @@ export default function Inicio() {
     >
 
       Comunicação indireta
+    </MenuItem>
+        <MenuItem
+    icone={<IconAdOff />}
+    url="/starwars"
+    className="botao"
+    >
+
+      Starwars
     </MenuItem>
     </Linha>
   </Menu>

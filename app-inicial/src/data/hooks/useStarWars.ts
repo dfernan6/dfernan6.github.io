@@ -24,7 +24,7 @@ export default function useStarWars() {
     }, [iniciarProcessamento, finalizarProcessamento])
 
     async function simularChamadaAPI() {
-        const resp = await fetch('https://swapi.dev/api/people/')
+        const resp = await fetch('https://swapi.py4e.com/api/people/')
         const dados = await resp.json()
         setPersonagens(dados.results)
     }
