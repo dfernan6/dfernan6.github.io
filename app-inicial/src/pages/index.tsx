@@ -12,6 +12,7 @@ import Image from "next/image"
 export default function Inicio() {
   return (
         <Pagina>
+          <h1 className="head">Aplicações NextJs</h1>
   <div className={`p-2`}>
   <Menu>
     <Linha>

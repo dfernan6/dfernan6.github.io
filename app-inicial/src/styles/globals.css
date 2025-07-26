@@ -20,12 +20,13 @@
 
 body {
     color: rgb(255 255 255);
-    background: rgb(54, 54, 54);
+    background: rgb(0, 0, 0);
     padding: 10px;
 }
 
 div {
-  margin: 10px;
+  margin: auto;
+  padding: 10px;
 }
 
 a {
@@ -37,4 +38,13 @@ a {
 .git {
   width: 50px;
   margin: auto;
+}
+
+.head {
+  font-size: larger;
+  background: linear-gradient(270deg, #000000, #383431, #86a8e7, #000000);
+  animation: gradientMove 10s ease infinite;
+  width: 100%;
+  text-align: center;
+
 }
