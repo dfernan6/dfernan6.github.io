@@ -76,8 +76,6 @@ li {
 
 div#iFooter {
     background-color: black;
-    font-size: 8px;
-    height: 100%;
     margin: auto;
     margin-bottom: 10px;
     padding: 10px;
@@ -85,7 +83,7 @@ div#iFooter {
 }
 
 div#iInterface {
-    background-color: #f6f7f5;
+    background-color: #ffffff;
     max-width: 600px;
     position: solid;
     height: 100%;
@@ -118,6 +116,7 @@ footer {
 }
  section {
     background-color: rgb(28,28,28);
+    display: contents;
     display: block ;
     width: 640px;
     margin: auto;
@@ -160,7 +159,7 @@ img#iDev {
     margin-top: 10px;
 }
   span:hover {
-    background-color: cornsilk;
+    background-color: rgb(255, 255, 255);
     color:black;  
 }
 span:active{
@@ -266,6 +265,7 @@ img#sos {
 
 article {
     width: clamp(75px, 30vh, 150px);
+    display: contents;
     position: fixed;
     padding: 1rem;
     z-index: 1000; 
@@ -274,22 +274,53 @@ article {
 .descricao {
     display: flex;
     flex-wrap: wrap;
-    background-color: rgb(207, 206, 201);
+    background-color: rgb(255, 255, 255);
 }
 
 a {
     margin: auto;
+    color: #000000;
 }
 
 .linkImg {
-    width: 300px;
+    width: 150px;
     margin: auto;
     border: solid;
-    border-radius: 130px;
+    border-radius: 10px;
     margin-top: 5px;
 }
 
 .descricaoTexto {
-    margin: auto;
+margin: auto;
     max-width: 275px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(221 221 221);
+    padding: 5px;
+}
+
+img.simbolos {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin: auto;
+    user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge */
+
+}
+
+.simbolos {
+    display: flex;
+    align-content: space-between;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.topo {
+    padding: 5px;
 }
