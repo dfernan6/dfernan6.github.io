@@ -36,19 +36,13 @@ margin: auto;
 overflow: hidden;
 }
 
-h1.exp {
-    max-width: 600px;
-    margin-top: 0px;
-    font-size: clamp(1rem, 3vw, 2rem);
-}
-
 h1 {
-color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 255);
+color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 0);
 margin: auto;
 text-align: left;
 font-family: 'Zen Tokyo Zoo', Impact, Haettenschweiler, sans-serif ;
-font-size: 20px;
+font-size: 24px;
 
 }
 h2 {
@@ -84,24 +78,23 @@ div#iFooter {
 
 div#iInterface {
     background-color: #ffffff;
-    max-width: 600px;
+    width: 100%;
     position: solid;
     height: 100%;
-    margin-top: 8px;
     height: calc(100vh - 70px);
     overflow-y: auto;
     text-align: justify;
-    box-shadow: 0px 0px 6px #000000, 0px 0px 0px #000000
+    box-shadow: 0px 0px 6px #000000, 0px 0px 0px #000000;
 }
+
 
 div#iCabecalho {
     background-color: black;
     margin: auto;
     border-style: solid;
-    border-radius: 5px;
-    color: #000000;
+    color: #ffffff;
     height: 100%;
-    box-shadow: 0px 0px 6px #000000, 0px 0px 0px #000000
+    box-shadow: 0px 0px 6px #000000, 0px 0px 0px #000000;
 }
 footer {
     color: rgb(255, 255, 255);
@@ -110,21 +103,17 @@ footer {
     text-align: center;
     font-size: 12px;
     clear: both;
-    margin-top: 10px;
     height: 50px;
     width: 100%;
 }
  section {
     background-color: rgb(28,28,28);
-    display: contents;
-    display: block ;
-    width: 640px;
+    width: 100%;
     margin: auto;
     }
 
 header {
     margin: auto;
-    margin-top: 10px;
 }
 img#iWhatsapp {
     width: 25px;
@@ -173,7 +162,6 @@ p#iPrimeiroTxt {
 p#iTopo {
 text-align: right;
 color: black;
-margin-top: -60px;
 margin-bottom: -5px;
 padding-right: 10px;
 font-family: 'Fuggles', cursive;
@@ -183,8 +171,9 @@ font-size: 40px;
 nav#iMenu {
     display: inline-flex;
     position: relative;
-    max-width: 600px;
-    margin: 0px 0px -16px -40px;
+    width: 100%;
+    background: white;
+    margin: auto;
 }
     
 nav#iMenu ul {
@@ -226,8 +215,8 @@ a#iNav:active {
 img#iIcone{
     width: clamp(28px, 50vw, 50px);
     height: clamp(23px, 50vw, 47px);
-    margin-left: 100px;
-    margin-top: -34px;
+    margin: auto;
+    padding: auto;
 }
 
 p#iFooter{
@@ -238,8 +227,7 @@ p#iFooter{
 
 .container {
   position: relative;
-  width: 100%;
-  max-width: 600px;
+  max-width: 800px;
 }
 
 .texto-sobreposto {
@@ -264,12 +252,14 @@ img#sos {
 }
 
 article {
-    width: clamp(75px, 30vh, 150px);
-    display: contents;
-    position: fixed;
-    padding: 1rem;
-    z-index: 1000; 
+    width: 100%;
+    position: flex;
+    z-index: 1000;
+    margin: auto;
+    flex-wrap: wrap;
+    overflow: auto;
 }
+
 
 .descricao {
     display: flex;
@@ -323,4 +313,28 @@ img.simbolos {
 
 .topo {
     padding: 5px;
+    background-color: #000000;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    align-content: stretch;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+p.topo {
+    background-color: rgba(255, 255, 255, 0.4);
+    margin: auto;
+    color: #ffffff;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+      z-index: 10;
+  position: relative;
+
+}
+
+@media (max-width: 600px) {
+  article {
+    display: block;
+    width: 100%;
+  }
 }
