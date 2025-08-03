@@ -27,7 +27,7 @@
 
 
 p {
-    font-size: 10px;
+    font-size: 14px;
 color: rgb(99 99 99);
 text-shadow: black ;
 font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -262,7 +262,6 @@ article {
 .descricao {
     display: flex;
     flex-wrap: wrap;
-    background-color: rgb(255, 255, 255);
 }
 
 a {
@@ -328,6 +327,7 @@ p.topo {
     z-index: 10;
     position: relative;
     max-width: 200px;
+    font-size: 10px;
 }
 
 .descriptionContent{
@@ -336,9 +336,35 @@ p.topo {
     display: contents;
 }
 
-@media (max-width: 600px) {
-  article {
-    display: block;
+@media (max-width: 900px) {
+ img.coreImg {
     width: 100%;
-  }
+    box-shadow: 1px 0px 5px rgba(10, -4, 8, 0.8);
+}
+}
+
+img.coreImg {
+    width: clamp(80px, 41vh, 300px);
+    box-shadow: 1px 0px 5px rgba(10, -4, 8, 0.8);
+}
+
+.fundoImgIndex{
+    background: linear-gradient(to right, #ffffff,#ffffff, #cfcfcf);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+p.textoIndex {
+    margin: auto;
+    color: #a7a7a7;
+    text-shadow: 1px 1px 0px rgb(0 0 0);
+    z-index: 10;
+    position: absolute;
+    font-size: clamp(12px, 41vh, 20px);;
+ 
+}
+
+.resumo {
+    padding: 10px;
 }
