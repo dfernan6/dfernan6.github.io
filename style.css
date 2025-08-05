@@ -373,3 +373,31 @@ p.textoIndex {
     width: 300px;
     margin: auto;
 }
+
+    .skills {
+      cursor: pointer;
+      font-weight: bold;
+      background: linear-gradient(to right, #ffffff,#ffffff, #7e7e7e);
+      margin: 8px 0;
+    }
+
+    .skills:hover {
+      background: linear-gradient(to right, #7e7e7e,#7e7e7e, #ffffff);
+    }
+
+    .skills.active {
+      background: linear-gradient(to right, #fcfcfc,#7e7e7e, #ffffff);
+    }
+
+    .textoOculto {
+      display: none;
+      margin-left: 10px;
+    }
+
+    h3:hover {
+color: rgb(255, 255, 255);
+font-family: 'Zen Tokyo Zoo', Impact, Haettenschweiler, sans-serif ;
+text-align: left;
+margin-left: 10px;
+font-size: 20px;
+}   
