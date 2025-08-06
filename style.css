@@ -82,7 +82,7 @@ div#iInterface {
     height: calc(100vh - 70px);
     overflow-y: auto;
     text-align: justify;
-    box-shadow: 0px 0px 6px #000000, 0px 0px 0px #000000;
+    box-shadow: 8px 0px 16px #000000, 0px 0px 0px #000000
 }
 
 
