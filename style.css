@@ -373,7 +373,7 @@ p.textoIndex {
 }
 
 .resumo {
-    padding: 10px;
+ padding: 10px;
 }
 
 .itemTexto{
@@ -409,3 +409,11 @@ text-align: left;
 margin-left: 10px;
 font-size: 20px;
 }   
+
+.subTexto {
+    font-family: verdana;
+    color: rgb(113 113 113);
+    font-size: 12px;
+    width: 100%;
+    margin-top: -20px;
+}
