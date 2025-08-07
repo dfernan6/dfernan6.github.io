@@ -10,7 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Fuggles&display=swap" rel="stylesheet">
 </head>
-<script language="javascript" src="funcoes.js"></script>
 <article>
     <header id="iCabecalho" >
         <div id="iCabecalho">
@@ -54,30 +53,37 @@
         <div class="topo">
         <h1 class="exp" >Projetos </h1>
         <img id="iIcone" src='./imagens/mim.png' >
-        <p class="topo"> Projetos desenvolvidos em aulas, treinamentos e para empresas estão reunidos nesta seção. </p>
+        <p class="topo">⚠️ Projetos desenvolvidos em aulas, treinamentos e para empresas estão reunidos nesta seção.📢</p>
         </div>
-        <div class="descriptionContent">
-        <div class="simbolos">
-        <h3>App-Inicial</h3>
+        <div class="elementsContainer">
+        <div class="skills" onclick="this.classList.toggle('active')">
+        <h3><span class="arrow" >◀</span> App-Inicial</h3>
+        </div>
+        <div class="subTexto">
+        <h5>Linguagens utlizadas:</h5>
         <img class="simbolos" draggable="false" src="./imagens/nodejs.PNG">
         <img class="simbolos" draggable="false" src="./imagens/nextjs.PNG">
         <img class="simbolos" draggable="false" src="./imagens/tailwind.PNG">
         <img class="simbolos" draggable="false" src="./imagens/ts.PNG">
         <img class="simbolos" draggable="false" src="./imagens/html.PNG">
         </div>
-        <div class="descricao">
-            <span class="descricaoTexto">
-        <p><i><b>Esse projeto foi realizado intenção de demonstrar algumas maneiras de utilizar NodeJS e Tailwind.</b></i><br><br>
+        <div class="textoOculto">
+            <div class="contentInterno">
+        <p><b>Esse projeto foi realizado intenção de demonstrar algumas maneiras de utilizar NodeJS e Tailwind.</b><br>
         As imagens são do <a href="//source.unsplash.com/" target="_blank" >https://source.unsplash.com/</a> que no caso está solicitando autenticação para exibi-las
     então devido à esse problema podem ocorrer problemas na exibição do arquivo.<br>
         Há algumas aplicações que estão somente em HTML por isso haverá divergência em alguns responsivos e no tipo de renderização. </p>
-            </span>
-        <a href="https://dfernan6.vercel.app/" target="_blank"> <img class="linkImg" src="./imagens/appInicial.PNG"></a><br>
+        <div>
+        <a href="https://dfernan6.vercel.app/" target="_blank"> <img class="linkImg" src="./imagens/appInicial.PNG"></a>
+        </div>
+        <br>
         </div>
         </div>
-        <div class="descriptionContent">
-                <div class="simbolos">
-                  <h3>Fundamentos</h3>
+                  <div class="skills" onclick="this.classList.toggle('active')">
+                  <h3><span class="arrow" >◀</span>  Fundamentos</h3>
+                  </div>
+                  <div class="subTexto">
+                    <h5>Linguagens utlizadas:</h5>
                     <img class="simbolos" draggable="false" src="./imagens/nodejs.PNG">
                     <img class="simbolos" draggable="false" src="./imagens/redux.PNG">
                     <img class="simbolos" draggable="false" src="./imagens/css.PNG">
@@ -85,18 +91,20 @@
                     <img class="simbolos" draggable="false" src="./imagens/html.PNG">
                     <img class="simbolos" draggable="false" src="./imagens/react.PNG">
                     </div>
-                  <div class="descricao">
-                  <span class="descricaoTexto">
+                  <div class="textoOculto">
+                    <div class="contentInterno">
         <p> Foi o primeiro aplicativo desenvolvido utilizando Redux, onde foram criados os Cards que têm em seu cabeçalho o nome das técnicas de desenvolvimento utilizadas como aprendizados
-    e também realizada a prática da distribuição responsiva dos Cards em CSS.<br><br></p>
-    <p style="font-size: 9px;"><b>Têm mais explicações sobre os modelos na aplicação</b></p>
-        </span>
-        <a href="https://dfernan6-react.vercel.app/" target="_blank"> <img class="linkImg" src="./imagens/fundImg.PNG"></a><br>
+    e também realizada a prática da distribuição responsiva dos Cards em CSS.<br>
+    <b>Têm mais explicações sobre os modelos na aplicação.</b></p>
+        <div>
+        <a href="https://dfernan6-react.vercel.app/" target="_blank"> <img class="linkImg" src="./imagens/fundImg.PNG"></a>
         </div>
         </div>
         </div>
-</div>  
-</section> 
+        <br>
+        </div>
+</section>
+<script language="javascript" src="funcoes.js"></script>
 </body>
 <footer>
     <div id="iFooter" >

@@ -1,5 +1,5 @@
 :root, body, html {
-        background-color: rgb(138, 138, 138);
+        background-color: rgb(238, 238, 238);
         box-sizing: content-box;
         display: contents;
         flex-wrap: wrap;   
@@ -43,6 +43,7 @@ margin: auto;
 text-align: left;
 font-family: 'Zen Tokyo Zoo', Impact, Haettenschweiler, sans-serif ;
 font-size: 24px;
+padding: 5px;
 
 }
 h2 {
@@ -145,14 +146,7 @@ img#iDev {
     margin-left: 3px;
     margin-top: 10px;
 }
-  span:hover {
-    background-color: rgb(255, 255, 255);
-    color:black;  
-}
-span:active{
-    color: black;
-    background-color: white;
-}
+
 p#iPrimeiroTxt {
     text-align: center;
     font-size: 12px;
@@ -268,8 +262,7 @@ article {
 
 
 .descricao {
-    display: flex;
-    flex-wrap: wrap;
+    max-width: 400px;
 }
 
 a {
@@ -278,7 +271,7 @@ a {
 }
 
 .linkImg {
-    width: 210px;
+    min-width: 175px;
     margin: auto;
     border: solid;
     border-radius: 10px;
@@ -338,12 +331,6 @@ p.topo {
     font-size: 10px;
 }
 
-.descriptionContent{
-    height: 54%;
-    margin: auto;
-    display: contents;
-}
-
 @media (max-width: 900px) {
  img.coreImg {
     width: 100%;
@@ -373,34 +360,47 @@ p.textoIndex {
 }
 
 .resumo {
- padding: 10px;
+  padding: 10px;
 }
 
 .itemTexto{
-    padding: 10px;
-    width: 300px;
-    margin: auto;
+  padding: 10px;
+  width: 300px;
+  margin: auto;
 }
 
-    .skills {
-      cursor: pointer;
-      font-weight: bold;
-      background: linear-gradient(to right, #ffffff,#ffffff, #7e7e7e);
-      margin: 8px 0;
-    }
+.skills {
+ cursor: pointer;
+ font-weight: bold;
+ background: linear-gradient(to right, #ffffff,#ffffff, #7e7e7e);
+ margin: 8px 0;
+}
 
-    .skills:hover {
-      background: linear-gradient(to right, #7e7e7e,#7e7e7e, #ffffff);
-    }
+.skills:hover {
+  background: linear-gradient(to right, #7e7e7e,#7e7e7e, #ffffff);
+}
 
-    .skills.active {
-      background: linear-gradient(to right, #fcfcfc,#7e7e7e, #ffffff);
-    }
+.skills.active {
+  background: linear-gradient(to right, #fcfcfc,#7e7e7e, #ffffff);
+}
 
-    .textoOculto {
-      display: none;
-      margin-left: 10px;
-    }
+.textoOculto {
+  display: none;
+  margin-left: 10px;
+  background: linear-gradient(to left, #ebebeb, #e9e4e4, #ffffff);
+  box-shadow: 6px 3px 2px #000000, 0px 1px 2px #000000;
+  padding: 5px;
+  display: flex;
+  align-items: center; /* Alinha verticalmente */
+  gap: 20px; /* Espaço entre imagem e texto */
+  justify-content: center;
+}
+
+.textoOculto img {
+  width: 150px;
+  height: auto;
+  border-radius: 8px;
+}
 
     h3:hover {
 color: rgb(255, 255, 255);
@@ -414,6 +414,27 @@ font-size: 20px;
     font-family: verdana;
     color: rgb(113 113 113);
     font-size: 12px;
-    width: 100%;
-    margin-top: -20px;
+    margin-top: -25px;
+    padding: 5px;
+    display: flex;
+}
+
+h4 {
+color: rgb(73 73 73);
+font-family: 'Zen Tokyo Zoo', Impact, Haettenschweiler, sans-serif ;
+text-align: left;
+margin-left: 10px;
+font-size: 20px;
+}
+
+.estavel {
+    background: linear-gradient(to right, #fcfcfc,#7e7e7e, #ffffff);
+    margin-top: -25px;
+}
+
+.contentInterno p {
+    font-size: 10px;
+}
+.contentInterno {
+    display: flex;
 }

@@ -5,19 +5,25 @@ function mudaFoto(foto){
 const botoes = document.querySelectorAll(".skills");
 
 botoes.forEach(botao => {
-    botao.addEventListener("click", () => {
-        // Encontra o próximo .textoOculto após o botão
-        let proximo = botao.nextElementSibling;
+  botao.addEventListener("click", () => {
+    // Encontra o próximo .textoOculto após o botão
+    let proximo = botao.nextElementSibling;
 
-        // Percorre os próximos irmãos até achar o .textoOculto
-        while (proximo && !proximo.classList.contains("textoOculto")) {
-            proximo = proximo.nextElementSibling;
-        }
+    while (proximo && !proximo.classList.contains("textoOculto")) {
+      proximo = proximo.nextElementSibling;
+    }
 
-        // Se encontrou, alterna a visibilidade
-        if (proximo) {
-            proximo.style.display = proximo.style.display === "block" ? "none" : "block";
-        }
-    });
+    // Alterna visibilidade do texto
+    if (proximo) {
+      const visivel = proximo.style.display === "block";
+      proximo.style.display = visivel ? "none" : "block";
+
+      // Alterna a seta dentro do botão
+      const seta = botao.querySelector(".arrow");
+      if (seta) {
+        seta.textContent = visivel ? "◀" : "▼";
+        seta.classList.toggle("active", !visivel);
+      }
+    }
+  });
 });
-
