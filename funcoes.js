@@ -21,7 +21,7 @@ botoes.forEach(botao => {
       // Alterna a seta dentro do botão
       const seta = botao.querySelector(".arrow");
       if (seta) {
-        seta.textContent = visivel ? "◀" : "▼";
+        seta.textContent = visivel ? "▼" : "◀" ;
         seta.classList.toggle("active", !visivel);
       }
     }

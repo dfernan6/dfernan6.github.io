@@ -390,10 +390,6 @@ p.textoIndex {
   background: linear-gradient(to left, #ebebeb, #e9e4e4, #ffffff);
   box-shadow: 6px 3px 2px #000000, 0px 1px 2px #000000;
   padding: 5px;
-  display: flex;
-  align-items: center; /* Alinha verticalmente */
-  gap: 20px; /* Espaço entre imagem e texto */
-  justify-content: center;
 }
 
 .textoOculto img {
