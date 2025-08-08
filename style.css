@@ -270,7 +270,8 @@ article {
 
 a {
     margin: auto;
-    color: #000000;
+    color: #897d7d;
+    text-decoration: none;
 }
 
 .linkImg {
@@ -436,4 +437,12 @@ font-size: 20px;
 }
 .contentInterno {
     display: flex;
+}
+
+.arrow {
+    font-size: 8px;
+}
+
+.contensImage{
+    display: contents;
 }
