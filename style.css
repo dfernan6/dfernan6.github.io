@@ -297,7 +297,7 @@ img.simbolos {
     width: 50px;
     height: 50px;
     display: inline-block;
-    margin: auto;
+    margin: 5px;
     user-select: none;
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none;    /* Firefox */
@@ -418,6 +418,8 @@ font-size: 20px;
     margin-top: -25px;
     padding: 5px;
     display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 h4 {
@@ -447,3 +449,54 @@ font-size: 20px;
 .contensImage{
     display: contents;
 }
+
+.description {
+  font-family: verdana;
+  color: rgb(113 113 113);
+  font-size: 12px;
+  margin-top: -25px;
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+img.languages {
+  width: 75px;
+  height: 75px;
+  display: block;
+  margin: 5px;
+  user-select: none;
+  border: solid #cfcfcf;
+}
+
+img.languages:hover {
+  border: solid #797979;
+  filter: brightness(70%);
+}
+
+.image-wrapper:hover .texto-sobre {
+  opacity: 1;
+}
+
+.texto-sobre {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-family: verdana;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
