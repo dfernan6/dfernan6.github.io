@@ -10,7 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Fuggles&display=swap" rel="stylesheet">
 </head>
-<script language="javascript" src="funcoes.js"></script>
 <article>
     <header id="iCabecalho" >
         <div id="iCabecalho">
@@ -56,10 +55,25 @@
         <img id="iIcone" src='./imagens/curriculo.png' >
         <p class="topo">📢 Um currículo bem estruturado transmite credibilidade, destaca o potencial do candidato e facilita a conexão entre o perfil profissional e as exigências da vaga 📢</p>
         </div>  
-        <a href="./Danilo Andrade Fernandes-CVPT.pdf" download>Baixar PDF</a>
-        <a href="./Danilo Andrade Fernandes-CVPT.pdf" target="_blank">Abrir PDF</a>
-        <iframe src="https://docs.google.com/gview?url=URL_DO_PDF&embedded=true" width="100%" height="600px"></iframe>
+        <div class="skills" onclick="this.classList.toggle('active')">
+             <h3><span class="arrow" >◀</span> Baixar PDF</h3></div>
+        <div class="textoOculto">
+        <a href="./Danilo Andrade Fernandes-CVPT.pdf" download><p>Clique aqui para Download.</p></a>
+        </div>
+        <div class="skills" onclick="this.classList.toggle('active')">
+            <h3><span class="arrow" >◀</span> Abrir PDF</h3>
+        </div>
+        <div class="textoOculto">
+        <a href="./Danilo Andrade Fernandes-CVPT.pdf" target="_blank"><p>Clique aqui para Abrir.</p></a>
+        </div>
+        <div class="skills" onclick="this.classList.toggle('active')">
+            <h3><span class="arrow" >◀</span> Vizualizar aqui</h3>
+        </div>
+        <div class="textoOculto">
+        <iframe src="./Danilo Andrade Fernandes-CVPT.pdf" width="100%" height="600px"></iframe>
+        </div>
 </section> 
+<script language="javascript" src="funcoes.js"></script>
 </body>
 <footer>
     <div id="iFooter" >
