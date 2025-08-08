@@ -12,7 +12,7 @@
 </head>
 <article>
      <header id="iCabecalho" >
-        <div id="iCabecalho">
+        <div id="iCabecalhoInterno">
             <nav id="iMenu">
                 <ul>
             <li onmouseover="mudaFoto('./imagens/home.png')" 
@@ -26,7 +26,7 @@
                 onmouseout="mudaFoto('./imagens/softskills.png')">
                 <a class="iNav" href="hard-skills.html">
                     Hard Skills</a></li>
-            <li onmouseover="mudaFoto('./imagens/softskills.png')" 
+            <li class="ativo" onmouseover="mudaFoto('./imagens/softskills.png')" 
             onmouseout="mudaFoto('./imagens/softskills.png')">
                 <a class="iNav" href="soft-skills.html">
                     Soft Skills</a></li>
@@ -47,9 +47,9 @@
     </div>
     </header>
 </article>
-   <section id="iCorpo" class="container">
 <body>
-    <div id="iInterface" class="container">
+      <section id="iCorpo" class="container">
+        <div id="iInterface" class="container">
         <div class="topo">
         <h1 class="exp" >Competências</h1>
         <img id="iIcone" src='./imagens/softskills.png' >
@@ -95,8 +95,6 @@
         <br>
         </div>
 </section> 
-<script language="javascript" src="funcoes.js"></script>
-</body>
 <footer>
     <div id="iFooter" >
 <a href="https://github.com/dfernan6" target="_blank">
@@ -117,4 +115,6 @@ class="cFooter" target="_blank"></a>
 <p id=iFooter >&copy <i>Editado por <b>Danilo Fernandes<br></b></i></p><br>
 </div>
 </footer>
+<script language="javascript" src="funcoes.js"></script>
+</body>
 </html>

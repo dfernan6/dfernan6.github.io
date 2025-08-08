@@ -9,10 +9,11 @@
 <link href="style.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Fuggles&display=swap" rel="stylesheet">
+
 </head>
 <article>
     <header id="iCabecalho" >
-        <div id="iCabecalho">
+        <div id="iCabecalhoInterno">
             <nav id="iMenu">
                 <ul>
             <li onmouseover="mudaFoto('./imagens/home.png')" 
@@ -38,33 +39,34 @@
             onmouseout="mudaFoto('./imagens/curriculo.png')">
                 <a class="iNav" href="formacao-academica.html">
                     Formação acadêmica</a></li>
-            <li onmouseover="mudaFoto('./imagens/curriculo.png')" 
+            <li class="ativo" onmouseover="mudaFoto('./imagens/curriculo.png')" 
             onmouseout="mudaFoto('./imagens/curriculo.png')">
-                <a class="iNav"href="curriculo.html">
+                <a class="iNav" href="curriculo.html">
                     Currículo</a></li>
             </ul>
             </nav>
     </div>
     </header>
 </article>
- <section id="iCorpo" class="container">
 <body>
+    <section id="iCorpo" class="container">
     <div id="iInterface" class="container">
         <div class="topo">
-        <h1 class="exp" >Curriculum vitae</h1>
+        <h1 class="exp" >Currículo</h1>
         <img id="iIcone" src='./imagens/curriculo.png' >
         <p class="topo">📢 Um currículo bem estruturado transmite credibilidade, destaca o potencial do candidato e facilita a conexão entre o perfil profissional e as exigências da vaga 📢</p>
         </div>  
         <div class="skills" onclick="this.classList.toggle('active')">
-             <h3><span class="arrow" >◀</span> Baixar PDF</h3></div>
+             <h3><span class="arrow" >◀</span> Baixar PDF</h3>
+        </div>
         <div class="textoOculto">
-        <a href="./Danilo Andrade Fernandes-CVPT.pdf" download><p>Clique aqui para Download.</p></a>
+        <a href="./Danilo Andrade Fernandes-CVPT.pdf" download><p>Clique aqui para fazer o <b>Download</b>.</p></a>
         </div>
         <div class="skills" onclick="this.classList.toggle('active')">
             <h3><span class="arrow" >◀</span> Abrir PDF</h3>
         </div>
         <div class="textoOculto">
-        <a href="./Danilo Andrade Fernandes-CVPT.pdf" target="_blank"><p>Clique aqui para Abrir.</p></a>
+        <a href="./Danilo Andrade Fernandes-CVPT.pdf" target="_blank"><p>Clique aqui para <b>Abrir</b> em outra janela.</p></a>
         </div>
         <div class="skills" onclick="this.classList.toggle('active')">
             <h3><span class="arrow" >◀</span> Vizualizar aqui</h3>
@@ -72,9 +74,19 @@
         <div class="textoOculto">
         <iframe src="./Danilo Andrade Fernandes-CVPT.pdf" width="100%" height="600px"></iframe>
         </div>
+         <div class="skills" onclick="this.classList.toggle('active')">
+            <h3><span class="arrow" >◀</span> ⚠️ Informações se estiver de android ❗</h3>
+        </div>
+        <div class="textoOculto">
+        <p>
+        ⚠️ <b>Por que ele pode abrir em nova aba?</b> ⚠️<br><br>
+- Se o PDF não for suportado nativamente pelo navegador, ele pode forçar a abertura em uma nova aba ou até baixar o arquivo.<br>
+- Alguns navegadores mobile não renderizam PDFs diretamente no iframe, especialmente se o arquivo estiver hospedado localmente ou não tiver cabeçalhos corretos no servidor.
+         </p>
+        </div>
+        </div>
 </section> 
 <script language="javascript" src="funcoes.js"></script>
-</body>
 <footer>
     <div id="iFooter" >
 <a href="https://github.com/dfernan6" target="_blank">
@@ -95,4 +107,6 @@ class="cFooter" target="_blank"></a>
 <p id=iFooter >&copy <i>Editado por <b>Danilo Fernandes<br></b></i></p><br>
 </div>
 </footer>
+<script src="funcoes.js"></script>
+</body>
 </html>

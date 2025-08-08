@@ -12,7 +12,7 @@
 </head>
 <article>
     <header id="iCabecalho" >
-        <div id="iCabecalho">
+        <div id="iCabecalhoInterno">
             <nav id="iMenu">
                 <ul>
             <li onmouseover="mudaFoto('./imagens/home.png')" 
@@ -30,7 +30,7 @@
             onmouseout="mudaFoto('./imagens/mim.png')">
                 <a class="iNav" href="soft-skills.html">
                     Soft Skills</a></li>
-            <li onmouseover="mudaFoto('./imagens/mim.png')"
+            <li class="ativo" onmouseover="mudaFoto('./imagens/mim.png')"
              onmouseout="mudaFoto('./imagens/mim.png')">
                 <a class="iNav" href="metas.html">
                     Projetos</a></li>
@@ -47,8 +47,8 @@
     </div>
     </header>
 </article>
-<section id="iCorpo" class="container">
 <body>
+    <section id="iCorpo" class="container">
     <div id="iInterface" class="container">
         <div class="topo">
         <h1 class="exp" >Projetos </h1>
@@ -104,9 +104,31 @@
         </div>
         <br>
         </div>
+    <div class="skills" onclick="this.classList.toggle('active')">
+                  <h3><span class="arrow" >◀</span> #7DaysOfCode - JS e DOM</h3>
+                  </div>
+                  <div class="subTexto">
+                    <h5>Linguagens utlizadas:</h5>
+                    <img class="simbolos" draggable="false" src="./imagens/css.PNG">
+                    <img class="simbolos" draggable="false" src="./imagens/js.PNG">
+                    <img class="simbolos" draggable="false" src="./imagens/html.PNG">
+                    <img class="simbolos" draggable="false" src="./imagens/bootstrap.PNG">
+                    </div>
+                  <div class="textoOculto">
+                    <div class="contentInterno">
+        <p> Projeto realizado seguindo os desafios da <b>Alura</b> <i>#7DaysOfCode</i>.
+
+Foi feito uma pagina na web onde você pode realizar o cadastro de alguém para uma
+lista de aniversários. Onde nessa lista vai constar somente a data de aniversário do
+convidado.<br>
+Foram 7 dias de desafio utilizando DOM e a Liguagem JavaScript na intenção de realizar o
+cadastro, podendo fazer alterações, exclusão e a limpeza geral dos convidades no servidor 
+(como foi somente como prático o servidor foi localStorage).</p>
+        <div>
+        <a href="./pages/aniversariantes.html" target="_blank"> <img class="linkImg" src="./imagens/aniversarios.PNG"></a>
+        </div>
+        </div>
 </section>
-<script language="javascript" src="funcoes.js"></script>
-</body>
 <footer>
     <div id="iFooter" >
 <a href="https://github.com/dfernan6" target="_blank">
@@ -127,4 +149,6 @@ class="cFooter" target="_blank"></a>
 <p id=iFooter >&copy <i>Editado por <b>Danilo Fernandes<br></b></i></p><br>
 </div>
 </footer>
+<script language="javascript" src="funcoes.js"></script>
+</body>
 </html>

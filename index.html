@@ -10,13 +10,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Fuggles&display=swap" rel="stylesheet">
 </head>
-<script language="javascript" src="funcoes.js"></script>
 <article>
     <header id="iCabecalho" >
-        <div id="iCabecalho">
+        <div id="iCabecalhoInterno">
             <nav id="iMenu">
                 <ul>
-            <li onmouseover="mudaFoto('./imagens/home.png')" 
+            <li class="ativo" onmouseover="mudaFoto('./imagens/home.png')" 
             onmouseout="mudaFoto('./imagens/home.png')">
                 <a  class="iNav" href="index.html">Home</a></li>
             <li onmouseover="mudaFoto('./imagens/experiencia.png')" 
@@ -48,8 +47,8 @@
     </div>
     </header>
 </article>
-    <section id="iCorpo" class="container">
 <body>
+        <section id="iCorpo" class="container">
     <div id="iInterface" class="container">
         <div class="topo">
         <h1 class="exp" >Página inicial</h1>
@@ -85,8 +84,7 @@ Comprometido com aprendizado contínuo e melhoria constante, busco contribuir de
 resultados da equipe e da empresa.</p><br>
 </div>
 </div>
-</section> 
-</body>
+</section>
 <footer>
     <div id="iFooter" >
 <a href="https://github.com/dfernan6" target="_blank">
@@ -100,11 +98,12 @@ resultados da equipe e da empresa.</p><br>
  id="iWhatsapp"></a>
 <a href="mailto:danilo.afernandes@outlook.com" target="_blank">
 <img class="cImgContato" src="./imagens/email.png" id="iEmail"></a>
-
 <a href="https://www.facebook.com/danilo.fernandes.5836/" >
 <img class="cImgFacebook" src="./imagens/facebook.png" id="iFaceBook"
 class="cFooter" target="_blank"></a>
 <p id=iFooter >&copy <i>Editado por <b>Danilo Fernandes<br></b></i></p><br>
 </div>
 </footer>
+<script language="javascript" src="funcoes.js"></script> 
+</body>
 </html>

@@ -27,3 +27,15 @@ botoes.forEach(botao => {
     }
   });
 });
+
+  const itensMenu = document.querySelectorAll("nav#iMenu li");
+
+  itensMenu.forEach(item => {
+    item.addEventListener("click", () => {
+      // Remove a classe 'ativo' de todos os itens
+      itensMenu.forEach(i => i.classList.remove("ativo"));
+      
+      // Adiciona a classe 'ativo' ao item clicado
+      item.classList.add("ativo");
+    });
+  });

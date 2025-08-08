@@ -10,10 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Fuggles&display=swap" rel="stylesheet">
 </head>
-<script language="javascript" src="funcoes.js"></script>
 <article>
     <header id="iCabecalho" >
-        <div id="iCabecalho">
+        <div id="iCabecalhoInterno">
             <nav id="iMenu">
                 <ul>
             <li onmouseover="mudaFoto('./imagens/home.png')" 
@@ -23,7 +22,7 @@
             onmouseout="mudaFoto('./imagens/skills.png')">
                 <a class="iNav" href="experiencia.html">
                     Experiência</a></li>
-                <li onmouseover="mudaFoto('./imagens/skills.png')" 
+                <li class="ativo" onmouseover="mudaFoto('./imagens/skills.png')" 
                 onmouseout="mudaFoto('./imagens/skills.png')">
                 <a class="iNav" href="hard-skills.html">
                     Hard Skills</a></li>
@@ -48,8 +47,8 @@
     </div>
     </header>
 </article>
-    <section id="iCorpo" class="container">
 <body>
+    <section id="iCorpo" class="container">
     <div id="iInterface" class="container">
         <div class="topo">
         <h1 class="exp" >Habilidades adquiridas</h1>
@@ -68,7 +67,6 @@
 
         </div> 
 </section> 
-</body>
 <footer>
     <div id="iFooter" >
 <a href="https://github.com/dfernan6" target="_blank">
@@ -89,4 +87,6 @@ class="cFooter" target="_blank"></a>
 <p id=iFooter >&copy <i>Editado por <b>Danilo Fernandes<br></b></i></p><br>
 </div>
 </footer>
+<script language="javascript" src="funcoes.js"></script>
+</body>
 </html>
