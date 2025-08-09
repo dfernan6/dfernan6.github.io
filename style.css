@@ -420,6 +420,7 @@ font-size: 20px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 h4 {
@@ -500,3 +501,11 @@ img.languages:hover {
   pointer-events: none;
 }
 
+.duplas {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
