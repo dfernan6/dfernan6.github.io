@@ -3,63 +3,78 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #cdebe7;
+  background-color: #fcefee; /* rosa algodão-doce */
   margin: 0;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  background-color: rgb(217 226 239);
-  border: 1px solid #bcc0f1; /* Corrigido: sem vírgula */
+  background-color: #fff8dc; /* amarelo clarinho */
+  border: 2px solid #ffd6d6; /* rosa pastel */
   max-width: 800px;
   width: 100%;
   padding: 15px;
   box-sizing: border-box;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 182, 193, 0.3); /* sombra rosa suave */
 }
 
 .items {
-        background: rgb(238 240 249);
-    padding: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-content: flex-start;
-    justify-content: flex-end;
-    align-items: center;
-    border: solid, #a9cafb;
+  background: #e0f7fa; /* azul bebê */
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: flex-start;
+  justify-content: flex-end;
+  align-items: center;
+  border: 2px dashed #a5d6a7; /* verde menta */
+  border-radius: 10px;
 }
 
 form {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: space-between;
-    margin: auto;
-    padding: 15px;
-    flex-direction: column;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
+  margin: auto;
+  padding: 15px;
+  flex-direction: column;
 }
 
 h1 {
-    font-size: 20px;
-    color: rgb(119 132 167);
-    font-family: cursive;
-    text-align: center;
+  font-size: 24px;
+  color: #ba68c8; /* lavanda */
+  font-family: 'Comic Sans MS', cursive;
+  text-align: center;
 }
 
 .linha-verde-clara {
-  background-color: #e6f4ea; /* verde bem claro */
+  background-color: #dcedc8; /* verde limão pastel */
 }
 
 .linha-azulada {
-  background-color: #eaf1f8; /* azul bem claro */
+  background-color: #e1f5fe; /* azul céu claro */
 }
 
 tr:hover {
-  background-color: #d0e0f0; /* azul mais forte no hover */
+  background-color: #ffe0b2; /* pêssego suave */
 }
 
 thead {
-  border-bottom: 2px solid #93c5fd;
-  background-color: #dbeafe;
+  border: 2px dashed #81d4fa; /* azul pastel */
+  background-color: #b3e5fc; /* azul claro */
+}
+
+.topo {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border: 2px dashed #96b7b0;
+    box-shadow: 16 3 26px #00ffcc;
+    image-rendering: pixelated;
+    border-radius: 0;
+    margin: 5px;
+    padding: 5px;
 }

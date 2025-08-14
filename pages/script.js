@@ -12,6 +12,23 @@ function formatarDataBrasileira(dataISO) {
   return `${dia}-${mes}-${ano}`;
 }
 
+// Função para calcular idade
+function calcularIdade(dataISO) {
+  const hoje = new Date();
+  const nascimento = new Date(dataISO);
+  let idade = hoje.getFullYear() - nascimento.getFullYear();
+  const mesAtual = hoje.getMonth();
+  const diaAtual = hoje.getDate();
+  const mesNascimento = nascimento.getMonth();
+  const diaNascimento = nascimento.getDate();
+
+  if (mesAtual < mesNascimento || (mesAtual === mesNascimento && diaAtual < diaNascimento)) {
+    idade--;
+  }
+
+  return idade;
+}
+
 // Atualiza a tabela na tela
 function atualizarLista() {
   resultado.innerHTML = '';
@@ -22,6 +39,7 @@ function atualizarLista() {
     tr.innerHTML = `
       <td><strong>${item.nome}</strong></td>
       <td>${formatarDataBrasileira(item.data)}</td>
+      <td>${calcularIdade(item.data)} anos</td>
       <td>
         <button onclick="editar(${index})" class="btn btn-sm btn-outline-primary me-2">✏️ Editar</button>
         <button onclick="deletar(${index})" class="btn btn-sm btn-outline-danger">❌ Deletar</button>
