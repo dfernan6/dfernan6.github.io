@@ -1,3 +1,85 @@
+window.addEventListener("DOMContentLoaded", () => {
+  const seltabCadastro = document.getElementById("seltabCadastro");
+  const dadosSalvos = localStorage.getItem("seltabCadastro");
+  if (dadosSalvos) {
+    seltabCadastro.innerHTML = dadosSalvos;
+    seltabCadastro.style.display = "none"; // começa oculto
+  }
+});
+
+document.getElementById("btnCadastro").addEventListener("click", async () => {
+  const seltabCadastro = document.getElementById("seltabCadastro");
+  const dadosSalvos = localStorage.getItem("seltabCadastro");
+
+  if (dadosSalvos) {
+    // Alterna visibilidade
+    if (seltabCadastro.style.display === "none" || !seltabCadastro.style.display) {
+      seltabCadastro.style.display = "block";
+    } else {
+      seltabCadastro.style.display = "none";
+    }
+  } else {
+    // Inicia cadastro se não houver dados
+    await cadastro();
+    seltabCadastro.style.display = "block";
+  }
+});
+
+document.getElementById("btnRefazer").addEventListener("click", async () => {
+  const seltabCadastro = document.getElementById("seltabCadastro");
+  const seltab = document.getElementById("seltab");
+  localStorage.removeItem("seltabCadastro");
+  seltabCadastro.innerHTML = "";
+  seltab.innerHTML = "";
+  seltabCadastro.style.display = "block";
+
+  let resumo = "";
+
+  const nome = await showPrompt("Qual o seu nome?");
+  resumo += `<p>👤 Nome: <strong>${nome}</strong></p>`;
+  seltabCadastro.innerHTML = resumo;
+
+  let idade;
+  while (true) {
+    const resposta = await showPrompt("Quantos anos você tem?");
+    if (!isNaN(Number(resposta)) && resposta.trim() !== "") {
+      idade = resposta;
+      break;
+    }
+    seltab.innerHTML += `<p>❌ Idade inválida. Digite um número.</p>`;
+  }
+
+  resumo += `<p>🎂 Idade: <strong>${idade}</strong></p>`;
+  seltabCadastro.innerHTML = resumo;
+
+  const linguagem = await showPrompt("Qual linguagem de programação você está estudando?");
+  resumo += `<p>💻 Estudando: <strong>${linguagem}</strong></p>`;
+  seltabCadastro.innerHTML = resumo;
+
+let reply;
+while (true) {
+  reply = await showPrompt(`Você gosta de estudar ${linguagem}? (Responda com "sim" ou "não")`);
+  const resposta = reply.trim().toLowerCase();
+  if (resposta === "sim") {
+    resumo += `<p>✅ Muito bom! Continue estudando e você terá muito sucesso.</p>`;
+    break;
+  } else if (resposta === "não") {
+    resumo += `<p>😕 Ahh que pena... Em breve você encontrará algo que goste!</p>`;
+    break;
+  } else {
+    seltab.innerHTML += `<p>❌ Resposta inválida. Por favor, digite "sim" ou "não".</p>`;
+  }
+}
+
+  seltabCadastro.innerHTML = resumo;
+
+  resumo += await decisao(linguagem, seltabCadastro);
+  resumo += await especialidade(nome, seltabCadastro);
+
+  seltabCadastro.innerHTML = resumo;
+  localStorage.setItem("seltabCadastro", resumo);
+});
+
 let promptCallback = null;
 
 async function showPrompt(pergunta) {
@@ -59,6 +141,7 @@ function submitPrompt() {
 
 async function cadastro() {
   const seltabCadastro = document.getElementById("seltabCadastro");
+  const seltab = document.getElementById("seltab")
   seltabCadastro.innerHTML = ""; // limpa antes de adicionar novo conteúdo
   let resumo = "";
 
@@ -66,9 +149,19 @@ async function cadastro() {
   resumo += `<p>👤 Nome: <strong>${nome}</strong></p>`;
   seltabCadastro.innerHTML = resumo;
 
-  const idade = await showPrompt("Quantos anos você tem?");
-  resumo += `<p>🎂 Idade: <strong>${idade}</strong></p>`;
-  seltabCadastro.innerHTML = resumo;
+let idade;
+while (true) {
+  const resposta = await showPrompt("Quantos anos você tem?");
+  if (!isNaN(Number(resposta)) && resposta.trim() !== "") {
+    idade = resposta;
+    break;
+  }
+  seltab.innerHTML += `<p>❌ Idade inválida. Digite um número.</p>`;
+}
+
+resumo += `<p>🎂 Idade: <strong>${idade}</strong></p>`;
+seltabCadastro.innerHTML = resumo;
+
 
   const linguagem = await showPrompt("Qual linguagem de programação você está estudando?");
   resumo += `<p>💻 Estudando: <strong>${linguagem}</strong></p>`;
@@ -93,25 +186,34 @@ async function cadastro() {
 
 async function decisao(linguagem, seltabCadastro) {
   let resultado = "";
+  const seltab = document.getElementById("seltab")
 
-  const msg = await showPrompt(`Você que estuda ${linguagem}, quer seguir para qual área?\nFront-end (1) ou Back-end (2)`);
-  resultado += `<p>🧭 Escolha de área: ${msg === '1' ? 'Front-end' : msg === '2' ? 'Back-end' : 'Indefinida'}</p>`;
+  let msg;
+  while (true) {
+    msg = await showPrompt(`Você que estuda ${linguagem}, quer seguir para qual área?\nFront-end (1) ou Back-end (2)`);
+    if (msg === '1' || msg === '2') break;
+    seltab.innerHTML += `<p>❌ Opção incorreta. Tente novamente.</p>`;
+  }
+
+  resultado += `<p>🧭 Escolha de área: ${msg === '1' ? 'Front-end' : 'Back-end'}</p>`;
   seltabCadastro.innerHTML += resultado;
 
   if (msg === '1') {
-    const reply2 = await showPrompt(`Além de seu foco em front-end, qual linguagem você quer aprender?\nReact (1) ou Vue (2)`);
-    if (reply2 === '1') {
-      resultado += `<p>⚛️ React é uma ótima escolha para front-end.</p>`;
-    } else if (reply2 === '2') {
-      resultado += `<p>🖼️ Vue é uma ótima escolha para front-end.</p>`;
+    let reply2;
+    while (true) {
+      reply2 = await showPrompt(`Além de seu foco em front-end, qual linguagem você quer aprender?\nReact (1) ou Vue (2)`);
+      if (reply2 === '1' || reply2 === '2') break;
+      seltab.innerHTML += `<p>❌ Opção incorreta. Tente novamente.</p>`;
     }
-  } else if (msg === '2') {
-    const reply2 = await showPrompt(`Além de seu foco em back-end, qual linguagem você quer aprender?\nC# (1) ou Java (2)`);
-    if (reply2 === '1') {
-      resultado += `<p>🔧 C# é uma ótima escolha para back-end.</p>`;
-    } else if (reply2 === '2') {
-      resultado += `<p>☕ Java é uma ótima escolha para back-end.</p>`;
+    resultado += `<p>${reply2 === '1' ? '⚛️ React é uma ótima escolha para front-end.' : '🖼️ Vue é uma ótima escolha para front-end.'}</p>`;
+  } else {
+    let reply2;
+    while (true) {
+      reply2 = await showPrompt(`Além de seu foco em back-end, qual linguagem você quer aprender?\nC# (1) ou Java (2)`);
+      if (reply2 === '1' || reply2 === '2') break;
+      seltab.innerHTML += `<p>❌ Opção incorreta. Tente novamente.</p>`;
     }
+    resultado += `<p>${reply2 === '1' ? '🔧 C# é uma ótima escolha para back-end.' : '☕ Java é uma ótima escolha para back-end.'}</p>`;
   }
 
   seltabCadastro.innerHTML += resultado;
@@ -120,13 +222,26 @@ async function decisao(linguagem, seltabCadastro) {
 
 async function especialidade(nome, seltabCadastro) {
   let resultado = "";
+  const seltab = document.getElementById("seltab")
 
-  const msg2 = await showPrompt(`E você ${nome}, gostaria de seguir se especializando na área escolhida ou se tornar Fullstack?\nÁrea escolhida (1) ou Full-stack (2)`);
-  const area = msg2 === '1' ? "Área escolhida" : msg2 === '2' ? "Full-stack" : "Indefinida";
+  let msg2;
+  while (true) {
+    msg2 = await showPrompt(`E você ${nome}, gostaria de seguir se especializando na área escolhida ou se tornar Fullstack?\nÁrea escolhida (1) ou Full-stack (2)`);
+    if (msg2 === '1' || msg2 === '2') break;
+    seltab.innerHTML += `<p>❌ Opção incorreta. Tente novamente.</p>`;
+  }
+
+  const area = msg2 === '1' ? "Área escolhida" : "Full-stack";
   resultado += `<p>🎯 Especialização: <strong>${area}</strong></p>`;
   seltabCadastro.innerHTML += resultado;
 
-  const quantidadeStr = await showPrompt(`Quantas tecnologias são essenciais para ${area}?`);
+  let quantidadeStr;
+  while (true) {
+    quantidadeStr = await showPrompt(`Quantas tecnologias são essenciais para ${area}?`);
+    if (!isNaN(Number(quantidadeStr)) && Number(quantidadeStr) > 0) break;
+    seltab.innerHTML += `<p>❌ Opção incorreta. Tente novamente.</p>`;
+  }
+
   const quantidade = Number(quantidadeStr);
   resultado += `<p>📊 Quantidade de tecnologias: ${quantidade}</p>`;
   seltabCadastro.innerHTML += resultado;
@@ -242,6 +357,53 @@ function atribuirEventoAdicionarItem() {
   // Alterna o estado da visibilidade
   listaVisivel = !listaVisivel;
   imprimirLista();
+}
+
+let numerosSorteados = [];
+
+async function sorteio() {
+  const seltabSorteio = document.getElementById("seltabSorteio");
+  seltabSorteio.innerHTML = ""; // limpa antes de cada sorteio
+
+  const minStr = await showPrompt("Informe o número mínimo:");
+  const maxStr = await showPrompt("Informe o número máximo:");
+  const escolhaStr = await showPrompt("Escolha seu número da sorte:");
+
+  const min = Number(minStr);
+  const max = Number(maxStr);
+  const escolha = Number(escolhaStr);
+
+  if (
+    isNaN(min) || isNaN(max) || isNaN(escolha) ||
+    min >= max || escolha < min || escolha > max
+  ) {
+    seltabSorteio.innerHTML = `<p>❌ Dados inválidos. Verifique os valores e tente novamente.</p>`;
+    return;
+  }
+
+  const sorteado = Math.floor(Math.random() * (max - min + 1)) + min;
+
+  seltabSorteio.innerHTML += `<p>🎲 Número sorteado: <strong>${sorteado}</strong></p>`;
+  seltabSorteio.innerHTML += `<p>🧑‍💼 Seu número escolhido: <strong>${escolha}</strong></p>`;
+
+  if (sorteado === escolha) {
+    seltabSorteio.innerHTML += `
+      <div class="text-center mt-3">
+        <h3 class="text-success fw-bold">🎉 Parabéns! Você acertou!</h3>
+        <img src="https://media.giphy.com/media/111ebonMs90YLu/giphy.gif" alt="Confetes" style="max-width: 100%; border-radius: 10px;">
+        <p class="mt-2">✨ Que sorte! Seu número foi o sorteado!</p>
+      </div>
+    `;
+    document.body.classList.add("vibrar");
+    setTimeout(() => document.body.classList.remove("vibrar"), 1000);
+  } else {
+    seltabSorteio.innerHTML += `
+      <div class="text-center mt-3">
+        <h4 class="text-danger fw-bold">😢 Que pena... não foi dessa vez.</h4>
+        <p>Seu número não foi sorteado. Tente novamente!</p>
+      </div>
+    `;
+  }
 }
 
 //#7DaysOfCode - Lógica JS 7/7: Funções em Javascript
