@@ -32,15 +32,3 @@ button.btn {
   padding: 10px;
   margin-top: 20px;
 }
-
-@keyframes vibrar {
-  0% { transform: translate(0); }
-  25% { transform: translate(-5px, 5px); }
-  50% { transform: translate(5px, -5px); }
-  75% { transform: translate(-5px, -5px); }
-  100% { transform: translate(5px, 5px); }
-}
-
-.vibrar {
-  animation: vibrar 0.3s ease-in-out 3;
-}
