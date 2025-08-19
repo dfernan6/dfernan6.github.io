@@ -299,8 +299,6 @@ function enviarCalc() {
     case "/": resultado = num2 === 0 ? "🚫 Erro: divisão por zero!" : num1 / num2; break;
   }
 
-  // Emojis por operação
-
   chat.innerHTML += `
     <p>🧮 <strong>Você:</strong> ${num1} ${operador} ${num2}</p>
     <p>✅ <strong>Resultado:</strong> ${resultado}</p>
@@ -308,3 +306,102 @@ function enviarCalc() {
 
   input.value = "";
 }
+
+function sorteio() {
+  const div = document.getElementById("seltabSorteio");
+
+  // Se já estiver preenchido, limpa (fecha)
+  if (div.innerHTML.trim() !== "") {
+    div.innerHTML = "";
+    return;
+  }
+
+  // Caso contrário, exibe o conteúdo
+  div.innerHTML = `
+    <p><strong>🎲 Sorteio de Números</strong></p>
+    <div class="d-flex flex-wrap gap-2 mb-2">
+      <div>
+        <label for="min" class="form-label mb-1">Min</label>
+        <input type="number" id="min" class="form-control form-control-sm" style="width: 80px;">
+      </div>
+      <div>
+        <label for="max" class="form-label mb-1">Max</label>
+        <input type="number" id="max" class="form-control form-control-sm" style="width: 80px;">
+      </div>
+      <div>
+        <label for="qtd" class="form-label mb-1">Qtd</label>
+        <input type="number" id="qtd" class="form-control form-control-sm" style="width: 80px;">
+      </div>
+      <div>
+        <label for="escolhido" class="form-label mb-1">Sorte</label>
+        <input type="number" id="escolhido" class="form-control form-control-sm" style="width: 80px;">
+      </div>
+      <div class="align-self-end">
+        <button onclick="executarSorteio()" class="btn btn-success btn-sm">Sortear 🎯</button>
+      </div>
+    </div>
+    <div id="resultadoSorteio" class="mt-3"></div>
+  `;
+}
+
+function executarSorteio() {
+  const min = parseInt(document.getElementById("min").value);
+  const max = parseInt(document.getElementById("max").value);
+  const qtd = parseInt(document.getElementById("qtd").value);
+  const escolhido = parseInt(document.getElementById("escolhido").value);
+  const resultadoDiv = document.getElementById("resultadoSorteio");
+
+  if (isNaN(min) || isNaN(max) || isNaN(qtd)) {
+    resultadoDiv.innerHTML = `<p class="text-danger">❌ Preencha os campos mínimo, máximo e quantidade.</p>`;
+    return;
+  }
+
+  if (min >= max) {
+    resultadoDiv.innerHTML = `<p class="text-danger">⚠️ O número mínimo deve ser menor que o máximo.</p>`;
+    return;
+  }
+
+  if (qtd > (max - min + 1)) {
+    resultadoDiv.innerHTML = `<p class="text-danger">🚫 Quantidade maior que o intervalo disponível.</p>`;
+    return;
+  }
+
+  const numeros = [];
+  while (numeros.length < qtd) {
+    const n = Math.floor(Math.random() * (max - min + 1)) + min;
+    if (!numeros.includes(n)) {
+      numeros.push(n);
+    }
+  }
+
+  let destaque = "";
+  let vibrar = false;
+
+  const badges = numeros.map(n => {
+    if (!isNaN(escolhido) && n === escolhido) {
+      destaque = `<p class="text-success mt-3">🎉 Parabéns! Seu número da sorte <strong>${escolhido}</strong> foi sorteado!</p>`;
+      vibrar = true;
+      return `<span class="badge bg-warning text-dark fs-5 pulse">${n}</span>`;
+    }
+    return `<span class="badge bg-primary fs-5">${n}</span>`;
+  });
+
+  if (!isNaN(escolhido) && escolhido < min || escolhido > max) {
+    destaque = `<p class="text-warning mt-3">⚠️ Seu número da sorte está fora do intervalo definido.</p>`;
+  } else if (!numeros.includes(escolhido) && !destaque) {
+    destaque = `<p class="text-muted mt-3">😕 Seu número da sorte <strong>${escolhido}</strong> não foi sorteado desta vez.</p>`;
+  }
+
+  resultadoDiv.innerHTML = `
+    <p class="text-success">✅ Números sorteados:</p>
+    <div class="d-flex flex-wrap gap-2">
+      ${badges.join("")}
+    </div>
+    ${destaque}
+  `;
+
+  if (vibrar && "vibrate" in navigator) {
+    navigator.vibrate([200, 100, 200]); // vibra duas vezes
+  }
+}
+
