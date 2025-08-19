@@ -246,52 +246,65 @@ function atribuirEventoAdicionarItem() {
 
 //#7DaysOfCode - Lógica JS 7/7: Funções em Javascript
 
-function calculadora(){
-  var calculo = prompt(`Simblos de cálculo: + - / *!: Cancelar pressione x`);
-  
-
- switch (calculo) {
-    case "+":
-        var a = Number(prompt(`Digite o primeiro número!`));
-        var b = Number(prompt(`Digite o segundo número!`));
-        console.log(somar(a,b))
-        break;
-    case "-":
-        var a = Number(prompt(`Digite o primeiro número!`));
-        var b = Number(prompt(`Digite o segundo número!`));
-        console.log(subtrair(a,b))
-        break;
-    case "*":
-        var a = Number(prompt(`Digite o primeiro número!`));
-        var b = Number(prompt(`Digite o segundo número!`));
-        console.log(multiplicar(a,b))
-        break;
-    case "/":
-        var a = Number(prompt(`Digite o primeiro número!`));
-        var b = Number(prompt(`Digite o segundo número!`));
-        console.log(dividir(a,b))
-        break;
-    case "x":
-        break;
-    default:
-        alert(`Símbolo incorreto!Favor realize o cálculo novamente!`);
-        calculadora();
-    }
+function calculadora() {
+  const div = document.getElementById("seltabCalculadora");
+  div.innerHTML = `
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <strong>🤖 Calculadora estilo chat</strong>
+      <button class="btn btn-sm btn-danger" onclick="fecharCalculadora()">✖</button>
+    </div>
+    <p>Digite sua operação (ex: <code>8 + 2</code>) e pressione "Enter":</p>
+    <input type="text" id="inputCalc" class="form-control mt-2" placeholder="Ex: 10 / 2" onkeydown="if(event.key==='Enter') enviarCalc()" autofocus>
+    <div id="chatCalc" class="mt-3 text-start"></div>
+    <div class="text-end mt-2">
+      <button class="btn btn-sm btn-outline-secondary" onclick="limparCalc()">🧹 Limpar</button>
+    </div>
+  `;
 }
 
-
-function somar(a,b){
-     return a + b;
+function limparCalc() {
+  document.getElementById("chatCalc").innerHTML = `<p class="text-muted">💬 Chat limpo.</p>`;
+  document.getElementById("inputCalc").value = "";
+  document.getElementById("inputCalc").focus();
 }
 
-function subtrair(a,b){
-    return a - b;
+function fecharCalculadora() {
+  document.getElementById("seltabCalculadora").innerHTML = "";
 }
 
-function multiplicar(a,b){
-    return a * b;
-}
+function enviarCalc() {
+  const input = document.getElementById("inputCalc");
+  const valor = input.value.trim();
+  const chat = document.getElementById("chatCalc");
 
-function dividir(a,b){
-    return a / b;
+  // Expressão regular para capturar número operador número
+  const regex = /^(-?\d+(?:\.\d+)?)\s*([\+\-\*\/])\s*(-?\d+(?:\.\d+)?)$/;
+  const match = valor.match(regex);
+
+  if (!match) {
+    chat.innerHTML += `<p>❌ <em>Entrada inválida.</em> Use o formato: <code>número operador número</code></p>`;
+    input.value = "";
+    return;
+  }
+
+  const num1 = parseFloat(match[1]);
+  const operador = match[2];
+  const num2 = parseFloat(match[3]);
+
+  let resultado;
+  switch (operador) {
+    case "+": resultado = num1 + num2; break;
+    case "-": resultado = num1 - num2; break;
+    case "*": resultado = num1 * num2; break;
+    case "/": resultado = num2 === 0 ? "🚫 Erro: divisão por zero!" : num1 / num2; break;
+  }
+
+  // Emojis por operação
+
+  chat.innerHTML += `
+    <p>🧮 <strong>Você:</strong> ${num1} ${operador} ${num2}</p>
+    <p>✅ <strong>Resultado:</strong> ${resultado}</p>
+  `;
+
+  input.value = "";
 }
