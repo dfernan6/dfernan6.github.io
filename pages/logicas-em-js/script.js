@@ -55,26 +55,59 @@ function submitPrompt() {
   modal.hide();
 }
 
+function fecharCadastro() {
+  const seltabCadastro = document.getElementById("seltabCadastro");
+  seltabCadastro.style.display = "none";
+}
+
+function cancelarCadastro() {
+  const seltabCadastro = document.getElementById("seltabCadastro");
+  seltabCadastro.innerHTML = `<p class="text-warning fw-bold">⚠️ Cadastro cancelado pelo usuário.</p>`;
+  localStorage.removeItem("seltabCadastro");
+}
+
+function verificarCancelamento(resposta) {
+  const valor = resposta.trim().toLowerCase();
+  return valor === "x" || valor === "cancelar";
+}
+
+function mostrarCadastro() {
+  const seltabCadastro = document.getElementById("seltabCadastro");
+  const cadastroSalvo = localStorage.getItem("seltabCadastro");
+
+  if (seltabCadastro.style.display === "none" || seltabCadastro.style.display === "") {
+    seltabCadastro.style.display = "block";
+    seltabCadastro.innerHTML = cadastroSalvo || "<p>Nenhum cadastro salvo.</p>";
+  } else {
+    seltabCadastro.style.display = "none";
+  }
+}
+
 //#7DaysOfCode - Lógica JS 2/7: 👩🏽‍💻 Variáveis
 
 async function cadastro() {
   const seltabCadastro = document.getElementById("seltabCadastro");
-  seltabCadastro.innerHTML = ""; // limpa antes de adicionar novo conteúdo
+  seltabCadastro.style.display = "block";
+
   let resumo = "";
 
-  const nome = await showPrompt("Qual o seu nome?");
+  const nome = await showPrompt("Qual o seu nome? (Digite 'x' para cancelar)");
+  if (verificarCancelamento(nome)) return cancelarCadastro();
   resumo += `<p>👤 Nome: <strong>${nome}</strong></p>`;
   seltabCadastro.innerHTML = resumo;
 
-  const idade = await showPrompt("Quantos anos você tem?");
+  const idade = await showPrompt("Quantos anos você tem? (Digite 'x' para cancelar)");
+  if (verificarCancelamento(idade)) return cancelarCadastro();
   resumo += `<p>🎂 Idade: <strong>${idade}</strong></p>`;
   seltabCadastro.innerHTML = resumo;
 
-  const linguagem = await showPrompt("Qual linguagem de programação você está estudando?");
+  const linguagem = await showPrompt("Qual linguagem de programação você está estudando? (Digite 'x' para cancelar)");
+  if (verificarCancelamento(linguagem)) return cancelarCadastro();
   resumo += `<p>💻 Estudando: <strong>${linguagem}</strong></p>`;
   seltabCadastro.innerHTML = resumo;
 
-  const reply = await showPrompt(`Você gosta de estudar ${linguagem}?`);
+  const reply = await showPrompt(`Você gosta de estudar ${linguagem}? (Digite 'x' para cancelar)`);
+  if (verificarCancelamento(reply)) return cancelarCadastro();
   if (reply.toLowerCase() === 'sim') {
     resumo += `<p>✅ Muito bom! Continue estudando e você terá muito sucesso.</p>`;
   } else if (reply.toLowerCase() === 'não') {
@@ -82,8 +115,13 @@ async function cadastro() {
   }
   seltabCadastro.innerHTML = resumo;
 
-  resumo += await decisao(linguagem, seltabCadastro);
-  resumo += await especialidade(nome, seltabCadastro);
+  const resultadoDecisao = await decisao(linguagem, seltabCadastro);
+  if (verificarCancelamento(resultadoDecisao)) return cancelarCadastro();
+  resumo += resultadoDecisao;
+
+  const resultadoEspecialidade = await especialidade(nome, seltabCadastro);
+  if (verificarCancelamento(resultadoEspecialidade)) return cancelarCadastro();
+  resumo += resultadoEspecialidade;
 
   seltabCadastro.innerHTML = resumo;
   localStorage.setItem("seltabCadastro", resumo);
@@ -94,19 +132,22 @@ async function cadastro() {
 async function decisao(linguagem, seltabCadastro) {
   let resultado = "";
 
-  const msg = await showPrompt(`Você que estuda ${linguagem}, quer seguir para qual área?\nFront-end (1) ou Back-end (2)`);
+const msg = await showPrompt(`Você que estuda ${linguagem}, quer seguir para qual área?\nFront-end (1) ou Back-end (2)\n(Digite 'x' para cancelar)`);
+if (verificarCancelamento(msg)) return "x";
   resultado += `<p>🧭 Escolha de área: ${msg === '1' ? 'Front-end' : msg === '2' ? 'Back-end' : 'Indefinida'}</p>`;
   seltabCadastro.innerHTML += resultado;
 
   if (msg === '1') {
-    const reply2 = await showPrompt(`Além de seu foco em front-end, qual linguagem você quer aprender?\nReact (1) ou Vue (2)`);
+    const reply2 = await showPrompt(`Além de seu foco em front-end, qual linguagem você quer aprender?\nReact (1) ou Vue (2)\n(Digite 'x' para cancelar)`);
+if (verificarCancelamento(msg)) return "x";
     if (reply2 === '1') {
       resultado += `<p>⚛️ React é uma ótima escolha para front-end.</p>`;
     } else if (reply2 === '2') {
       resultado += `<p>🖼️ Vue é uma ótima escolha para front-end.</p>`;
     }
   } else if (msg === '2') {
-    const reply2 = await showPrompt(`Além de seu foco em back-end, qual linguagem você quer aprender?\nC# (1) ou Java (2)`);
+    const reply2 = await showPrompt(`Além de seu foco em back-end, qual linguagem você quer aprender?\nC# (1) ou Java (2)\n(Digite 'x' para cancelar)`);
+if (verificarCancelamento(msg)) return "x";
     if (reply2 === '1') {
       resultado += `<p>🔧 C# é uma ótima escolha para back-end.</p>`;
     } else if (reply2 === '2') {
@@ -121,19 +162,22 @@ async function decisao(linguagem, seltabCadastro) {
 async function especialidade(nome, seltabCadastro) {
   let resultado = "";
 
-  const msg2 = await showPrompt(`E você ${nome}, gostaria de seguir se especializando na área escolhida ou se tornar Fullstack?\nÁrea escolhida (1) ou Full-stack (2)`);
+  const msg2 = await showPrompt(`E você ${nome}, gostaria de seguir se especializando na área escolhida ou se tornar Fullstack?\nÁrea escolhida (1) ou Full-stack (2)\n(Digite 'x' para cancelar)`);
+if (verificarCancelamento(msg2)) return "x";
   const area = msg2 === '1' ? "Área escolhida" : msg2 === '2' ? "Full-stack" : "Indefinida";
   resultado += `<p>🎯 Especialização: <strong>${area}</strong></p>`;
   seltabCadastro.innerHTML += resultado;
 
-  const quantidadeStr = await showPrompt(`Quantas tecnologias são essenciais para ${area}?`);
+  const quantidadeStr = await showPrompt(`Quantas tecnologias são essenciais para ${area}?\n(Digite 'x' para cancelar)`);
+if (verificarCancelamento(msg2)) return "x";
   const quantidade = Number(quantidadeStr);
   resultado += `<p>📊 Quantidade de tecnologias: ${quantidade}</p>`;
   seltabCadastro.innerHTML += resultado;
 
   let tecnologias = [];
   for (let i = 0; i < quantidade; i++) {
-    const msg3 = await showPrompt(`Quais tecnologias?`);
+    const msg3 = await showPrompt(`Quais tecnologias?\n(Digite 'x' para cancelar)`);
+if (verificarCancelamento(msg2)) return "x";
     tecnologias.push(msg3);
     resultado += `<p>🔹 Tecnologia ${i + 1}: ${msg3}</p>`;
     seltabCadastro.innerHTML += `<p>🔹 Tecnologia ${i + 1}: ${msg3}</p>`;
@@ -161,6 +205,7 @@ async function obterRespostaSimOuNao(pergunta) {
     }
 
     mensagem.innerHTML = `<p class="text-danger fw-bold">❌ Opção inválida. Por favor, responda "Sim" ou "Não".</p>`;
+    localStorage.setItem("seltabCadastro", resumo);
   }
 }
 let listaVisivel = false;
