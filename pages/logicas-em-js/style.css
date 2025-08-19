@@ -1,7 +1,10 @@
 body {
-  background-color: #e3f2fd;
-  font-family: 'Segoe UI', sans-serif;
+  background-image: url('https://www.transparenttextures.com/patterns/circuit-board.png');
+  background-color: #0f0f0f;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
 }
+
 
 h2 {
   color: #1976d2;
@@ -25,14 +28,6 @@ button.btn {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-#seltab {
-  background-color: #90caf9;
-  border: 2px dashed #1976d2;
-  color: #0d47a1;
-  padding: 10px;
-  margin-top: 20px;
-}
-
 .pulse {
   animation: pulse 1s infinite;
   box-shadow: 0 0 10px rgba(255, 193, 7, 0.6);
@@ -42,4 +37,75 @@ button.btn {
   0% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.2); opacity: 0.7; }
   100% { transform: scale(1); opacity: 1; }
+}
+
+.botao-funcao {
+  width: 180px;
+  height: 180px;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 16px;
+  margin: 15px;
+  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #ffffff33;
+  color: #0ff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.botao-funcao:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.6);
+  background: rgba(0, 255, 255, 0.2);
+  border-color: #0ff;
+  color: #fff;
+}
+
+.botao-funcao .icone {
+  font-size: 3rem;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+.botao-funcao span {
+  font-size: 1rem;
+  margin-top: 8px;
+}
+
+.linha-funcao {
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+p {
+  color: #04eeff;
+}
+
+.logo-chatbot {
+  display: block;
+  margin: 0 auto 30px auto;
+  max-width: 300px;
+  filter: drop-shadow(0 0 15px #0ff);
+  animation: flutuar 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.logo-chatbot:hover {
+  transform: scale(1.05);
+}
+
+@keyframes flutuar {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }

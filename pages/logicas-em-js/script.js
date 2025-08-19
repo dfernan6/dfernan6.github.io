@@ -56,14 +56,14 @@ function submitPrompt() {
 }
 
 function fecharCadastro() {
-  const seltabCadastro = document.getElementById("seltabCadastro");
-  seltabCadastro.style.display = "none";
+  const seltab = document.getElementById("seltab");
+  seltab.style.display = "none";
 }
 
 function cancelarCadastro() {
-  const seltabCadastro = document.getElementById("seltabCadastro");
-  seltabCadastro.innerHTML = `<p class="text-warning fw-bold">⚠️ Cadastro cancelado pelo usuário.</p>`;
-  localStorage.removeItem("seltabCadastro");
+  const seltab = document.getElementById("seltab");
+  seltab.innerHTML = `<p class="text-warning fw-bold">⚠️ Cadastro cancelado pelo usuário.</p>`;
+  localStorage.removeItem("seltab");
 }
 
 function verificarCancelamento(resposta) {
@@ -72,123 +72,209 @@ function verificarCancelamento(resposta) {
 }
 
 function mostrarCadastro() {
-  const seltabCadastro = document.getElementById("seltabCadastro");
-  const cadastroSalvo = localStorage.getItem("seltabCadastro");
+  const seltab = document.getElementById("seltab");
+  const cadastroSalvo = localStorage.getItem("seltab");
 
-  if (seltabCadastro.style.display === "none" || seltabCadastro.style.display === "") {
-    seltabCadastro.style.display = "block";
-    seltabCadastro.innerHTML = cadastroSalvo || "<p>Nenhum cadastro salvo.</p>";
+  const estiloAtual = window.getComputedStyle(seltab).display;
+
+  if (estiloAtual === "none") {
+    seltab.style.display = "block";
+    seltab.innerHTML = cadastroSalvo || "<p>Nenhum cadastro salvo.</p>";
   } else {
-    seltabCadastro.style.display = "none";
+    seltab.style.display = "none";
   }
 }
+
 
 //#7DaysOfCode - Lógica JS 2/7: 👩🏽‍💻 Variáveis
 
 async function cadastro() {
-  const seltabCadastro = document.getElementById("seltabCadastro");
-  seltabCadastro.style.display = "block";
+  const seltab = document.getElementById("seltab");
+  seltab.style.display = "block";
 
   let resumo = "";
 
-  const nome = await showPrompt("Qual o seu nome? (Digite 'x' para cancelar)");
-  if (verificarCancelamento(nome)) return cancelarCadastro();
+  // 🔁 Validação do nome (não pode ser número ou vazio)
+  let nome = "";
+  while (true) {
+    nome = await showPrompt("Qual o seu nome? (Digite 'x' para cancelar)");
+    if (verificarCancelamento(nome)) return cancelarCadastro();
+    if (nome.trim() !== "" && isNaN(nome)) break;
+
+    seltab.innerHTML += `<p class="text-danger fw-bold">❌ Nome inválido. Digite um nome com letras.</p>`;
+  }
   resumo += `<p>👤 Nome: <strong>${nome}</strong></p>`;
-  seltabCadastro.innerHTML = resumo;
+  seltab.innerHTML = resumo;
 
-  const idade = await showPrompt("Quantos anos você tem? (Digite 'x' para cancelar)");
-  if (verificarCancelamento(idade)) return cancelarCadastro();
+  // 🔁 Validação da idade (deve ser número positivo)
+  let idade = "";
+  while (true) {
+    idade = await showPrompt("Quantos anos você tem? (Digite 'x' para cancelar)");
+    if (verificarCancelamento(idade)) return cancelarCadastro();
+    const idadeNum = Number(idade);
+    if (!isNaN(idadeNum) && idadeNum > 0) {
+      idade = idadeNum;
+      break;
+    }
+
+    seltab.innerHTML += `<p class="text-danger fw-bold">❌ Idade inválida. Digite um número maior que zero.</p>`;
+  }
   resumo += `<p>🎂 Idade: <strong>${idade}</strong></p>`;
-  seltabCadastro.innerHTML = resumo;
+  seltab.innerHTML = resumo;
 
-  const linguagem = await showPrompt("Qual linguagem de programação você está estudando? (Digite 'x' para cancelar)");
-  if (verificarCancelamento(linguagem)) return cancelarCadastro();
+  // 🔁 Validação da linguagem (não pode ser vazio)
+  let linguagem = "";
+  while (true) {
+    linguagem = await showPrompt("Qual linguagem de programação você está estudando? (Digite 'x' para cancelar)");
+    if (verificarCancelamento(linguagem)) return cancelarCadastro();
+    if (linguagem.trim() !== "") break;
+
+    seltab.innerHTML += `<p class="text-danger fw-bold">❌ Linguagem inválida. Digite um nome válido.</p>`;
+  }
   resumo += `<p>💻 Estudando: <strong>${linguagem}</strong></p>`;
-  seltabCadastro.innerHTML = resumo;
+  seltab.innerHTML = resumo;
 
-  const reply = await showPrompt(`Você gosta de estudar ${linguagem}? (Digite 'x' para cancelar)`);
-  if (verificarCancelamento(reply)) return cancelarCadastro();
+  // 🔁 Validação de resposta Sim ou Não
+  let reply = "";
+  while (true) {
+    reply = await showPrompt(`Você gosta de estudar ${linguagem}? (Digite 'x' para cancelar)`);
+    if (verificarCancelamento(reply)) return cancelarCadastro();
+    const resposta = reply.trim().toLowerCase();
+    if (resposta === "sim" || resposta === "não") break;
+
+    seltab.innerHTML += `<p class="text-danger fw-bold">❌ Resposta inválida. Digite "Sim" ou "Não".</p>`;
+  }
+
   if (reply.toLowerCase() === 'sim') {
     resumo += `<p>✅ Muito bom! Continue estudando e você terá muito sucesso.</p>`;
-  } else if (reply.toLowerCase() === 'não') {
+  } else {
     resumo += `<p>😕 Ahh que pena... Em breve você encontrará algo que goste!</p>`;
   }
-  seltabCadastro.innerHTML = resumo;
+  seltab.innerHTML = resumo;
 
-  const resultadoDecisao = await decisao(linguagem, seltabCadastro);
+  // Continua com as funções já validadas
+  const resultadoDecisao = await decisao(linguagem, seltab);
   if (verificarCancelamento(resultadoDecisao)) return cancelarCadastro();
   resumo += resultadoDecisao;
 
-  const resultadoEspecialidade = await especialidade(nome, seltabCadastro);
+  const resultadoEspecialidade = await especialidade(nome, seltab);
   if (verificarCancelamento(resultadoEspecialidade)) return cancelarCadastro();
   resumo += resultadoEspecialidade;
 
-  seltabCadastro.innerHTML = resumo;
-  localStorage.setItem("seltabCadastro", resumo);
+  seltab.innerHTML = resumo;
+  localStorage.setItem("seltab", resumo);
 }
 
 //#7DaysOfCode - Lógica JS 3/7: Fluxo de decisão
 
-async function decisao(linguagem, seltabCadastro) {
+async function decisao(linguagem, seltab) {
   let resultado = "";
+  let msg = "";
 
-const msg = await showPrompt(`Você que estuda ${linguagem}, quer seguir para qual área?\nFront-end (1) ou Back-end (2)\n(Digite 'x' para cancelar)`);
-if (verificarCancelamento(msg)) return "x";
-  resultado += `<p>🧭 Escolha de área: ${msg === '1' ? 'Front-end' : msg === '2' ? 'Back-end' : 'Indefinida'}</p>`;
-  seltabCadastro.innerHTML += resultado;
+  // 🔁 Loop até resposta válida
+  while (true) {
+    msg = await showPrompt(`Você que estuda ${linguagem}, quer seguir para qual área?\nFront-end (1) ou Back-end (2)\n(Digite 'x' para cancelar)`);
+    if (verificarCancelamento(msg)) return "x";
+    if (msg === '1' || msg === '2') break;
 
-  if (msg === '1') {
-    const reply2 = await showPrompt(`Além de seu foco em front-end, qual linguagem você quer aprender?\nReact (1) ou Vue (2)\n(Digite 'x' para cancelar)`);
-if (verificarCancelamento(msg)) return "x";
-    if (reply2 === '1') {
-      resultado += `<p>⚛️ React é uma ótima escolha para front-end.</p>`;
-    } else if (reply2 === '2') {
-      resultado += `<p>🖼️ Vue é uma ótima escolha para front-end.</p>`;
-    }
-  } else if (msg === '2') {
-    const reply2 = await showPrompt(`Além de seu foco em back-end, qual linguagem você quer aprender?\nC# (1) ou Java (2)\n(Digite 'x' para cancelar)`);
-if (verificarCancelamento(msg)) return "x";
-    if (reply2 === '1') {
-      resultado += `<p>🔧 C# é uma ótima escolha para back-end.</p>`;
-    } else if (reply2 === '2') {
-      resultado += `<p>☕ Java é uma ótima escolha para back-end.</p>`;
-    }
+    seltab.innerHTML += `<p class="text-danger fw-bold">❌ Resposta inválida. Digite "1" para Front-end ou "2" para Back-end.</p>`;
   }
 
-  seltabCadastro.innerHTML += resultado;
+  resultado += `<p>🧭 Escolha de área: ${msg === '1' ? 'Front-end' : 'Back-end'}</p>`;
+  seltab.innerHTML += resultado;
+
+  let reply2 = "";
+
+  if (msg === '1') {
+    while (true) {
+      reply2 = await showPrompt(`Além de seu foco em front-end, qual linguagem você quer aprender?\nReact (1) ou Vue (2)\n(Digite 'x' para cancelar)`);
+      if (verificarCancelamento(reply2)) return "x";
+      if (reply2 === '1' || reply2 === '2') break;
+
+      seltab.innerHTML += `<p class="text-danger fw-bold">❌ Resposta inválida. Digite "1" para React ou "2" para Vue.</p>`;
+    }
+
+    resultado += reply2 === '1'
+      ? `<p>⚛️ React é uma ótima escolha para front-end.</p>`
+      : `<p>🖼️ Vue é uma ótima escolha para front-end.</p>`;
+  }
+
+  if (msg === '2') {
+    while (true) {
+      reply2 = await showPrompt(`Além de seu foco em back-end, qual linguagem você quer aprender?\nC# (1) ou Java (2)\n(Digite 'x' para cancelar)`);
+      if (verificarCancelamento(reply2)) return "x";
+      if (reply2 === '1' || reply2 === '2') break;
+
+      seltab.innerHTML += `<p class="text-danger fw-bold">❌ Resposta inválida. Digite "1" para C# ou "2" para Java.</p>`;
+    }
+
+    resultado += reply2 === '1'
+      ? `<p>🔧 C# é uma ótima escolha para back-end.</p>`
+      : `<p>☕ Java é uma ótima escolha para back-end.</p>`;
+  }
+
+  seltab.innerHTML += resultado;
   return resultado;
 }
 
-async function especialidade(nome, seltabCadastro) {
+async function especialidade(nome, seltab) {
   let resultado = "";
+  let msg2 = "";
 
-  const msg2 = await showPrompt(`E você ${nome}, gostaria de seguir se especializando na área escolhida ou se tornar Fullstack?\nÁrea escolhida (1) ou Full-stack (2)\n(Digite 'x' para cancelar)`);
-if (verificarCancelamento(msg2)) return "x";
-  const area = msg2 === '1' ? "Área escolhida" : msg2 === '2' ? "Full-stack" : "Indefinida";
+  // 🔁 Validação da escolha de especialização
+  while (true) {
+    msg2 = await showPrompt(`E você ${nome}, gostaria de seguir se especializando na área escolhida ou se tornar Fullstack?\nÁrea escolhida (1) ou Full-stack (2)\n(Digite 'x' para cancelar)`);
+    if (verificarCancelamento(msg2)) return "x";
+    if (msg2 === '1' || msg2 === '2') break;
+
+    seltab.innerHTML += `<p class="text-danger fw-bold">❌ Resposta inválida. Digite "1" para Área escolhida ou "2" para Full-stack.</p>`;
+  }
+
+  const area = msg2 === '1' ? "Área escolhida" : "Full-stack";
   resultado += `<p>🎯 Especialização: <strong>${area}</strong></p>`;
-  seltabCadastro.innerHTML += resultado;
+  seltab.innerHTML += resultado;
 
-  const quantidadeStr = await showPrompt(`Quantas tecnologias são essenciais para ${area}?\n(Digite 'x' para cancelar)`);
-if (verificarCancelamento(msg2)) return "x";
-  const quantidade = Number(quantidadeStr);
+  let quantidadeStr = "";
+  let quantidade = 0;
+
+  // 🔁 Validação da quantidade de tecnologias
+  while (true) {
+    quantidadeStr = await showPrompt(`Quantas tecnologias são essenciais para ${area}?\n(Digite 'x' para cancelar)`);
+    if (verificarCancelamento(quantidadeStr)) return "x";
+
+    quantidade = Number(quantidadeStr);
+    if (!isNaN(quantidade) && quantidade > 0) break;
+
+    seltab.innerHTML += `<p class="text-danger fw-bold">❌ Resposta inválida. Digite um número válido maior que zero.</p>`;
+  }
+
   resultado += `<p>📊 Quantidade de tecnologias: ${quantidade}</p>`;
-  seltabCadastro.innerHTML += resultado;
+  seltab.innerHTML += resultado;
 
   let tecnologias = [];
+
+  // 🔁 Validação de cada tecnologia
   for (let i = 0; i < quantidade; i++) {
-    const msg3 = await showPrompt(`Quais tecnologias?\n(Digite 'x' para cancelar)`);
-if (verificarCancelamento(msg2)) return "x";
+    let msg3 = "";
+
+    while (true) {
+      msg3 = await showPrompt(`Quais tecnologias? (${i + 1} de ${quantidade})\n(Digite 'x' para cancelar)`);
+      if (verificarCancelamento(msg3)) return "x";
+      if (msg3.trim() !== "") break;
+
+      seltab.innerHTML += `<p class="text-danger fw-bold">❌ Resposta inválida. Digite o nome da tecnologia.</p>`;
+    }
+
     tecnologias.push(msg3);
     resultado += `<p>🔹 Tecnologia ${i + 1}: ${msg3}</p>`;
-    seltabCadastro.innerHTML += `<p>🔹 Tecnologia ${i + 1}: ${msg3}</p>`;
+    seltab.innerHTML += `<p>🔹 Tecnologia ${i + 1}: ${msg3}</p>`;
   }
 
   resultado += `<p>🧠 Tecnologias essenciais para <strong>${area}</strong>: ${tecnologias.join(", ")}.</p>`;
-  seltabCadastro.innerHTML += resultado;
+  seltab.innerHTML += resultado;
 
   return resultado;
 }
-
 //#7DaysOfCode - Lógica JS 5/7: Arrays e coleções
 
 async function obterRespostaSimOuNao(pergunta) {
@@ -205,33 +291,36 @@ async function obterRespostaSimOuNao(pergunta) {
     }
 
     mensagem.innerHTML = `<p class="text-danger fw-bold">❌ Opção inválida. Por favor, responda "Sim" ou "Não".</p>`;
-    localStorage.setItem("seltabCadastro", resumo);
+    localStorage.setItem("seltab", resumo);
   }
 }
+
 let listaVisivel = false;
+document.getElementById("seltab").style.display = "none";
 
-async function compras() {
+async function produtos() {
   const mensagem = document.getElementById("seltab");
-  const listaContainer = document.getElementById("seltabCompras");
+  const listaContainer = document.getElementById("seltab");
+  document.getElementById("seltab").style.display = "block";
 
-  let lista = JSON.parse(localStorage.getItem("listaCompras")) || [];
+  let lista = JSON.parse(localStorage.getItem("listaProdutos")) || [];
 
   function salvarLista() {
-    localStorage.setItem("listaCompras", JSON.stringify(lista));
+    localStorage.setItem("listaProdutos", JSON.stringify(lista));
   }
 
 
  const gerarListaHTML = () => {
   if (lista.length === 0) {
     return `
-      <h5 class="fw-bold text-primary mb-3">🛍️ Lista Final de Compras</h5>
+      <h5 class="fw-bold text-primary mb-3">🛍️ Lista Final de produtos</h5>
       <p class="text-muted">📭 Lista vazia. Adicione itens com o botão abaixo.</p>
       <button class="btn btn-sm btn-success mt-2" id="btnAdicionarItem">➕ Adicionar item</button>
     `;
   }
 
   return `
-    <h5 class="fw-bold text-primary mb-3">🛍️ Lista Final de Compras</h5>
+    <h5 class="fw-bold text-primary mb-3">🛍️ Lista Final de produtos</h5>
     <ul class="list-group">
       ${lista.map((item, index) => `
         <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -292,7 +381,8 @@ function atribuirEventoAdicionarItem() {
 //#7DaysOfCode - Lógica JS 7/7: Funções em Javascript
 
 function calculadora() {
-  const div = document.getElementById("seltabCalculadora");
+  const div = document.getElementById("seltab");
+  document.getElementById("seltab").style.display = "block";
   div.innerHTML = `
     <div class="d-flex justify-content-between align-items-center mb-2">
       <strong>🤖 Calculadora estilo chat</strong>
@@ -314,7 +404,7 @@ function calculadora() {
 }
 
 function fecharCalculadora() {
-  document.getElementById("seltabCalculadora").innerHTML = "";
+  document.getElementById("seltab").innerHTML = "";
 }
 
 function limparCalc() {
@@ -366,41 +456,57 @@ function enviarCalc() {
   input.value = "";
 }
 
-function sorteio() {
-  const div = document.getElementById("seltabSorteio");
+let estadoAtual = ""; // "" | "cadastro" | "sorteio"
 
-  // Se já estiver preenchido, limpa (fecha)
-  if (div.innerHTML.trim() !== "") {
-    div.innerHTML = "";
-    return;
+function mostrarCadastro() {
+  const seltab = document.getElementById("seltab");
+  const cadastroSalvo = localStorage.getItem("seltab");
+
+  if (estadoAtual !== "cadastro") {
+    seltab.style.display = "block";
+    seltab.innerHTML = cadastroSalvo || "<p>Nenhum cadastro salvo.</p>";
+    estadoAtual = "cadastro";
+  } else {
+    seltab.style.display = "none";
+    estadoAtual = "";
   }
+}
 
-  // Caso contrário, exibe o conteúdo
-  div.innerHTML = `
-    <p><strong>🎲 Sorteio de Números</strong></p>
-    <div class="d-flex flex-wrap gap-2 mb-2">
-      <div>
-        <label for="min" class="form-label mb-1">Min</label>
-        <input type="number" id="min" class="form-control form-control-sm" style="width: 80px;">
+function sorteio() {
+  const seltab = document.getElementById("seltab");
+
+  if (estadoAtual !== "sorteio") {
+    seltab.style.display = "block";
+    seltab.innerHTML = `
+      <p><strong>🎲 Sorteio de Números</strong></p>
+      <div class="d-flex flex-wrap gap-2 mb-2">
+        <div>
+          <label for="min" class="form-label mb-1">Min</label>
+          <input type="number" id="min" class="form-control form-control-sm" style="width: 80px;">
+        </div>
+        <div>
+          <label for="max" class="form-label mb-1">Max</label>
+          <input type="number" id="max" class="form-control form-control-sm" style="width: 80px;">
+        </div>
+        <div>
+          <label for="qtd" class="form-label mb-1">Qtd</label>
+          <input type="number" id="qtd" class="form-control form-control-sm" style="width: 80px;">
+        </div>
+        <div>
+          <label for="escolhido" class="form-label mb-1">Sorte</label>
+          <input type="number" id="escolhido" class="form-control form-control-sm" style="width: 80px;">
+        </div>
+        <div class="align-self-end">
+          <button onclick="executarSorteio()" class="btn btn-success btn-sm">Sortear 🎯</button>
+        </div>
       </div>
-      <div>
-        <label for="max" class="form-label mb-1">Max</label>
-        <input type="number" id="max" class="form-control form-control-sm" style="width: 80px;">
-      </div>
-      <div>
-        <label for="qtd" class="form-label mb-1">Qtd</label>
-        <input type="number" id="qtd" class="form-control form-control-sm" style="width: 80px;">
-      </div>
-      <div>
-        <label for="escolhido" class="form-label mb-1">Sorte</label>
-        <input type="number" id="escolhido" class="form-control form-control-sm" style="width: 80px;">
-      </div>
-      <div class="align-self-end">
-        <button onclick="executarSorteio()" class="btn btn-success btn-sm">Sortear 🎯</button>
-      </div>
-    </div>
-    <div id="resultadoSorteio" class="mt-3"></div>
-  `;
+      <div id="resultadoSorteio" class="mt-3"></div>
+    `;
+    estadoAtual = "sorteio";
+  } else {
+    seltab.style.display = "none";
+    estadoAtual = "";
+  }
 }
 
 function executarSorteio() {
