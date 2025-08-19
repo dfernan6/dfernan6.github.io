@@ -305,16 +305,24 @@ function calculadora() {
       <button class="btn btn-sm btn-outline-secondary" onclick="limparCalc()">🧹 Limpar</button>
     </div>
   `;
-}
 
-function limparCalc() {
-  document.getElementById("chatCalc").innerHTML = `<p class="text-muted">💬 Chat limpo.</p>`;
-  document.getElementById("inputCalc").value = "";
-  document.getElementById("inputCalc").focus();
+  // ✅ Torna o chat visível após criar
+  setTimeout(() => {
+    const chat = document.getElementById("chatCalc");
+    if (chat) chat.style.display = "block";
+  }, 0);
 }
 
 function fecharCalculadora() {
   document.getElementById("seltabCalculadora").innerHTML = "";
+}
+
+function limparCalc() {
+  const chat = document.getElementById("chatCalc");
+  chat.innerHTML = `<p class="text-muted">💬 Chat limpo.</p>`;
+  chat.style.display = "block"; // ← garante que fique visível
+  document.getElementById("inputCalc").value = "";
+  document.getElementById("inputCalc").focus();
 }
 
 function enviarCalc() {
@@ -322,7 +330,13 @@ function enviarCalc() {
   const valor = input.value.trim();
   const chat = document.getElementById("chatCalc");
 
-  // Expressão regular para capturar número operador número
+  chat.style.display = "block";
+
+  // ✅ Remove o aviso "Chat limpo." se for o único conteúdo
+  if (chat.innerHTML.includes("💬 Chat limpo.")) {
+    chat.innerHTML = "";
+  }
+
   const regex = /^(-?\d+(?:\.\d+)?)\s*([\+\-\*\/])\s*(-?\d+(?:\.\d+)?)$/;
   const match = valor.match(regex);
 
