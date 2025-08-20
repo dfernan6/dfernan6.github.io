@@ -5,30 +5,51 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Logicas em JS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<style>
+  #particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+  }
+</style>
 </head>
 <body>
+  <div id="particles-js"></div>
 <div class="container py-4">
-  <h2 class="text-center text-primary mb-4 fw-bold">🎯 Selecione a função</h2>
-  <div class="text-center mt-4">
-    <div id="seltab" class="border rounded p-3 mx-auto" style="max-width: 600px;"></div>
-  </div>
-  <div class="text-center mt-4">
-     <button onclick="cadastro()" class="btn btn-success me-2">Cadastro</button>
-    <div id="seltabCadastro" class="border rounded p-3 mx-auto" style="max-width: 600px;"></div>
-  <div class="text-center mt-4">
-    <button onclick="sorteio()" class="btn btn-warning me-2">Sorteio</button>
-    <div id="seltabSorteio" class="border rounded p-3 mx-auto mt-3" style="max-width: 600px;"></div>
-  </div>
-  <div class="text-center mt-4">
-    <button onclick="calculadora()" class="btn btn-danger">Calculadora</button>
-    <div id="seltabCalculadora" class="border rounded p-3 mx-auto mt-3" style="max-width: 600px;"></div>
-  </div>
-  <div class="text-center mt-4">
-    <button class="btn btn-primary" onclick="compras()">🛒 Compras</button>
-    <div id="seltabCompras" class="border rounded p-3 mx-auto mt-3" style="max-width: 600px;"></div>
-  </div>
+<div class="text-center">
+  <img src="../imagens/logo-robotico-escrit.png" alt="Logo Escolha o seu ChatBot" class="logo-chatbot">
+</div>
+<div class="d-flex flex-wrap justify-content-center mt-5" style="max-width: 1050px; margin: 0 auto;">
+  <button onclick="mostrarCadastro()" class="botao-funcao">
+    <div class="icone">👀</div>
+    <span>Ver Cadastro</span>
+  </button>
+  <button onclick="cadastro()" class="botao-funcao">
+    <div class="icone">🆕</div>
+    <span>Novo Cadastro</span>
+  </button>
+  <button onclick="sorteio()" class="botao-funcao">
+    <div class="icone">🎲</div>
+    <span>Sorteio</span>
+  </button>
+  <button onclick="calculadora()" class="botao-funcao">
+    <div class="icone">🧮</div>
+    <span>Calculadora</span>
+  </button>
+  <div class="produtos"></div>
+  <button onclick="produtos()" class="botao-funcao">
+    <div class="icone">📦</div>
+    <span>Produtos</span>
+  </button>
+  <div id="seltab" tabindex="-1" class="border rounded p-3 mx-auto mt-4" style="max-width: 600px;">
+</div>
 </div>
 <div class="modal fade" id="promptModal" tabindex="-1" aria-labelledby="promptLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -49,5 +70,41 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
+<script>
+  particlesJS("particles-js", {
+    particles: {
+      number: { value: 80 },
+      color: { value: "#0ff" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5 },
+      size: { value: 3 },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#0ff",
+        opacity: 0.4,
+        width: 1
+      },
+      move: {
+        enable: true,
+        speed: 2,
+        direction: "none",
+        out_mode: "out"
+      }
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: { enable: true, mode: "repulse" },
+        onclick: { enable: true, mode: "push" }
+      },
+      modes: {
+        repulse: { distance: 100 },
+        push: { particles_nb: 4 }
+      }
+    },
+    retina_detect: true
+  });
+</script>
 </body>
 </html>
