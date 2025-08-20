@@ -1,3 +1,21 @@
+document.getElementById("seltab").style.display = "none";
+document.getElementById("seltab").focus();
+
+function mostrarSeltab() {
+  const seltab = document.getElementById("seltab");
+  seltab.style.display = "block";
+  seltab.classList.remove("zoom-in");
+  void seltab.offsetWidth;
+  seltab.classList.add("zoom-in");
+
+  // Rolar até o elemento
+  seltab.scrollIntoView({ behavior: "smooth", block: "center" });
+
+  // Dar foco se possível
+  seltab.setAttribute("tabindex", "-1");
+  seltab.focus();
+}
+
 let promptCallback = null;
 
 async function showPrompt(pergunta) {
@@ -78,10 +96,10 @@ function mostrarCadastro() {
   const estiloAtual = window.getComputedStyle(seltab).display;
 
   if (estiloAtual === "none") {
-    seltab.style.display = "block";
+    mostrarSeltab();
     seltab.innerHTML = cadastroSalvo || "<p>Nenhum cadastro salvo.</p>";
   } else {
-    seltab.style.display = "none";
+    fecharCadastro();
   }
 }
 
@@ -90,7 +108,7 @@ function mostrarCadastro() {
 
 async function cadastro() {
   const seltab = document.getElementById("seltab");
-  seltab.style.display = "block";
+  mostrarSeltab();
 
   let resumo = "";
 
@@ -296,12 +314,11 @@ async function obterRespostaSimOuNao(pergunta) {
 }
 
 let listaVisivel = false;
-document.getElementById("seltab").style.display = "none";
 
 async function produtos() {
   const mensagem = document.getElementById("seltab");
   const listaContainer = document.getElementById("seltab");
-  document.getElementById("seltab").style.display = "block";
+  mostrarSeltab();
 
   let lista = JSON.parse(localStorage.getItem("listaProdutos")) || [];
 
@@ -356,7 +373,7 @@ function atribuirEventoAdicionarItem() {
       atribuirEventosRemocao();
       atribuirEventoAdicionarItem();
     } else {
-      listaContainer.innerHTML = ""; // Esconde a lista
+      fecharCadastro() // Esconde a lista
     }
   }
 
@@ -376,13 +393,13 @@ function atribuirEventoAdicionarItem() {
   // Alterna o estado da visibilidade
   listaVisivel = !listaVisivel;
   imprimirLista();
+  
 }
-
 //#7DaysOfCode - Lógica JS 7/7: Funções em Javascript
 
 function calculadora() {
   const div = document.getElementById("seltab");
-  document.getElementById("seltab").style.display = "block";
+  mostrarSeltab();
   div.innerHTML = `
     <div class="d-flex justify-content-between align-items-center mb-2">
       <strong>🤖 Calculadora estilo chat</strong>
@@ -404,7 +421,7 @@ function calculadora() {
 }
 
 function fecharCalculadora() {
-  document.getElementById("seltab").innerHTML = "";
+  document.getElementById("seltab").style.display = "none";
 }
 
 function limparCalc() {
@@ -454,6 +471,7 @@ function enviarCalc() {
   `;
 
   input.value = "";
+  fecharCalculadora();
 }
 
 let estadoAtual = ""; // "" | "cadastro" | "sorteio"
@@ -463,7 +481,7 @@ function mostrarCadastro() {
   const cadastroSalvo = localStorage.getItem("seltab");
 
   if (estadoAtual !== "cadastro") {
-    seltab.style.display = "block";
+    mostrarSeltab();
     seltab.innerHTML = cadastroSalvo || "<p>Nenhum cadastro salvo.</p>";
     estadoAtual = "cadastro";
   } else {
@@ -474,9 +492,10 @@ function mostrarCadastro() {
 
 function sorteio() {
   const seltab = document.getElementById("seltab");
+  mostrarSeltab();
 
   if (estadoAtual !== "sorteio") {
-    seltab.style.display = "block";
+    mostrarSeltab();
     seltab.innerHTML = `
       <p><strong>🎲 Sorteio de Números</strong></p>
       <div class="d-flex flex-wrap gap-2 mb-2">
@@ -504,12 +523,13 @@ function sorteio() {
     `;
     estadoAtual = "sorteio";
   } else {
-    seltab.style.display = "none";
+    fecharCadastro();
     estadoAtual = "";
   }
 }
 
 function executarSorteio() {
+  mostrarCadastro();
   const min = parseInt(document.getElementById("min").value);
   const max = parseInt(document.getElementById("max").value);
   const qtd = parseInt(document.getElementById("qtd").value);

@@ -92,12 +92,35 @@ p {
 }
 
 .logo-chatbot {
-  display: block;
-  margin: 0 auto 30px auto;
-  max-width: 300px;
-  filter: drop-shadow(0 0 15px #0ff);
-  animation: flutuar 3s ease-in-out infinite;
-  transition: transform 0.3s ease;
+  position: relative;
+  max-width: 250px;
+  animation: flutuar 3s ease-in-out infinite, neonPulse 2s infinite;
+  filter: drop-shadow(0 0 20px #0ff);
+  mix-blend-mode: screen;
+}
+
+@keyframes neonPulse {
+  0% { filter: drop-shadow(0 0 10px #0ff); }
+  50% { filter: drop-shadow(0 0 25px #00ffff); }
+  100% { filter: drop-shadow(0 0 10px #0ff); }
+}
+
+@keyframes glitch {
+  0% { clip-path: inset(0 0 0 0); transform: translate(0); }
+  20% { clip-path: inset(10% 0 15% 0); transform: translate(-2px, 2px); }
+  40% { clip-path: inset(5% 0 10% 0); transform: translate(2px, -2px); }
+  60% { clip-path: inset(15% 0 5% 0); transform: translate(-1px, 1px); }
+  80% { clip-path: inset(10% 0 10% 0); transform: translate(1px, -1px); }
+  100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+}
+
+@keyframes glitch {
+  0% { clip-path: inset(0 0 0 0); transform: translate(0); }
+  20% { clip-path: inset(10% 0 15% 0); transform: translate(-2px, 2px); }
+  40% { clip-path: inset(5% 0 10% 0); transform: translate(2px, -2px); }
+  60% { clip-path: inset(15% 0 5% 0); transform: translate(-1px, 1px); }
+  80% { clip-path: inset(10% 0 10% 0); transform: translate(1px, -1px); }
+  100% { clip-path: inset(0 0 0 0); transform: translate(0); }
 }
 
 .logo-chatbot:hover {
@@ -108,4 +131,23 @@ p {
   0% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
   100% { transform: translateY(0); }
+}
+
+#particles {
+  display: block;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.zoom-in {
+  animation: zoomIn 0.5s ease forwards;
 }
