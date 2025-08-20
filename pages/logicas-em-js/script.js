@@ -5,14 +5,9 @@ function mostrarSeltab() {
   const seltab = document.getElementById("seltab");
   seltab.style.display = "block";
   seltab.classList.remove("zoom-in");
-  void seltab.offsetWidth;
+  void seltab.offsetWidth; // reinicia animação
   seltab.classList.add("zoom-in");
-
-  // Rolar até o elemento
-  seltab.scrollIntoView({ behavior: "smooth", block: "center" });
-
-  // Dar foco se possível
-  seltab.setAttribute("tabindex", "-1");
+    seltab.setAttribute("tabindex", "-1");
   seltab.focus();
 }
 
@@ -99,7 +94,7 @@ function mostrarCadastro() {
     mostrarSeltab();
     seltab.innerHTML = cadastroSalvo || "<p>Nenhum cadastro salvo.</p>";
   } else {
-    fecharCadastro();
+    seltab.style.display = "none";
   }
 }
 
@@ -373,7 +368,7 @@ function atribuirEventoAdicionarItem() {
       atribuirEventosRemocao();
       atribuirEventoAdicionarItem();
     } else {
-      fecharCadastro() // Esconde a lista
+      document.getElementById("seltab").style.display = "none"; // Esconde a lista
     }
   }
 
@@ -471,7 +466,6 @@ function enviarCalc() {
   `;
 
   input.value = "";
-  fecharCalculadora();
 }
 
 let estadoAtual = ""; // "" | "cadastro" | "sorteio"
@@ -492,7 +486,6 @@ function mostrarCadastro() {
 
 function sorteio() {
   const seltab = document.getElementById("seltab");
-  mostrarSeltab();
 
   if (estadoAtual !== "sorteio") {
     mostrarSeltab();
@@ -523,13 +516,12 @@ function sorteio() {
     `;
     estadoAtual = "sorteio";
   } else {
-    fecharCadastro();
+    seltab.style.display = "none";
     estadoAtual = "";
   }
 }
 
 function executarSorteio() {
-  mostrarCadastro();
   const min = parseInt(document.getElementById("min").value);
   const max = parseInt(document.getElementById("max").value);
   const qtd = parseInt(document.getElementById("qtd").value);
