@@ -436,7 +436,7 @@ font-size: 20px;
 
 .estavel {
     background: linear-gradient(to right, #fcfcfc,#7e7e7e, #ffffff);
-    margin-top: -25px;
+    margin: 8px 0;
 }
 
 .contentInterno p {
