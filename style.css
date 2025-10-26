@@ -452,6 +452,12 @@ font-size: 20px;
 
 .contensImage{
     display: contents;
+      overflow: hidden;
+  border-radius: 12px; /* opcional, para suavizar bordas */
+}
+
+.contensImage:hover .linkImg {
+  transform: scale(1.05); /* aumenta 5% */
 }
 
 .description {
@@ -514,7 +520,8 @@ img.languages:hover {
 }
 
 .linkImg{
+    transition: transform 0.4s ease;
     width: 175px;
     height: 100px;
-    border: solid;
+    display: block;
 }
