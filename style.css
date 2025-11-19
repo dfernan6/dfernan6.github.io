@@ -440,10 +440,16 @@ font-size: 20px;
 }
 
 .contentInterno p {
-    font-size: 10px;
+    font-size: 16px;
 }
 .contentInterno {
     display: flex;
+    flex-direction: column;
+}
+
+.contentInternoM {
+    display: flex;
+    flex-direction: row;
 }
 
 .arrow {
@@ -525,3 +531,57 @@ img.languages:hover {
     height: 100px;
     display: block;
 }
+
+
+.video-wrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.video-wrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.video-wrapper video {
+  display: block;
+  border-radius: 12px;
+  width: 175px;   /* tamanho inicial */
+  height: 100px;
+  transition: all 0.4s ease;
+}
+
+.video-wrapper:hover video {
+  width: 100%;    /* expande para ocupar toda a largura do container */
+  height: auto;   /* ajusta altura proporcionalmente */
+  transform: scale(1.05); /* leve zoom para dar destaque */
+  z-index: 1;     /* mantém acima do overlay, mas dentro do fluxo */
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4); /* overlay mais suave */
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 18px;
+  font-family: Verdana, sans-serif;
+}
+
+.video-wrapper:hover .video-overlay {
+  opacity: 1; /* mostra overlay ao passar o mouse */
+}
+
+
+
+
