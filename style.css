@@ -435,7 +435,7 @@ font-size: 20px;
 }
 
 .estavel {
-    background: linear-gradient(to right, #fcfcfc,#7e7e7e, #ffffff);
+    background: linear-gradient(to right, #fcfcfc,#7e7e7e, #000000);
     margin: 8px 0;
 }
 
