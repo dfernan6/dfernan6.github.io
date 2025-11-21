@@ -560,6 +560,7 @@ img.languages:hover {
 .video-wrapper:hover video {
   width: 100%;    /* expande para ocupar toda a largura do container */
   height: auto;   /* ajusta altura proporcionalmente */
+  max-height: 300px; /* limite máximo de altura */
   transform: scale(1.05); /* leve zoom para dar destaque */
   z-index: 1;     /* mantém acima do overlay, mas dentro do fluxo */
 }
