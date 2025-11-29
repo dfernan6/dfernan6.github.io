@@ -1,15 +1,21 @@
 :root, body, html {
-        background-color: rgb(238, 238, 238);
-        box-sizing: content-box;
-        display: contents;
-        flex-wrap: wrap;   
-        font-size: 16px;
-        img {
-            max-width: 100%;
-            height: auto;
+    background-color: #00e8ff; /* fallback background */
+    background-image: url('/imagens/bgTest.gif');
+    background-repeat: no-repeat;
+    background-size: cover;   /* makes the image fill the screen */
+    background-position: center; /* centers the image */           /* makes the background semi-transparent */
+    box-sizing: content-box;
+    display: contents;
+    flex-wrap: wrap;   
+    font-size: 16px;
 }
 
-    }
+img {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 8px 0px 16px #000000, 0px 0px 0px #000000;
+}
+
     
     html{
 
@@ -91,12 +97,13 @@ div#iCabecalhoInterno {
     background-color: black;
     margin: auto;
     border-style: solid;
-    color: #ffffff;
+    color: #00e8ff;
     height: 100%;
     box-shadow: 0px 0px 6px #000000, 0px 0px 0px #000000;
 }
 footer {
     color: rgb(255, 255, 255);
+    box-shadow: 8px 0px 16px #000000, 0px 0px 0px #000000;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: auto;
     text-align: center;
@@ -164,7 +171,7 @@ nav#iMenu {
     display: inline-flex;
     position: relative;
     width: 100%;
-    background: white;
+    background: #00e8ff;
     margin: auto;
 }
     
@@ -177,7 +184,7 @@ nav#iMenu ul {
 
 nav#iMenu li {
     display: inline-flex;
-    background-color: rgb(255, 255, 255);
+    background-color: #00e8ff;
     font-size: 12px;
     margin: 0px;
     margin-left: 0;
@@ -205,7 +212,7 @@ a.iNav:hover {
     color: rgb(255, 255, 255);
 }
 nav#iMenu li.ativo {
-    background-color: rgb(175 171 171);
+    background-color: #089dab;
     color: #ffffff;
     transition: none;
 }

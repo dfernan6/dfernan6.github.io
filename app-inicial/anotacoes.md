@@ -10,4 +10,3 @@ interface CirculoProps {
     text: string
     quasePerfeito?: boolean
 }
-
