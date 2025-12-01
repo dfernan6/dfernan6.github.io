@@ -6,104 +6,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./imagens/topo8.png" />
     <title> dfernan6 | Portfolio</title>
-<link href="style.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Fuggles&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fuggles&display=swap" rel="stylesheet">
+    <style>
+      #counter { display: none; font-family: monospace; font-size: 18px; color:#00e8ff; }
+    </style>
+    <!-- Firebase SDKs (compat builds) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
 </head>
 <article>
     <header id="iCabecalho" >
         <div id="iCabecalhoInterno">
             <nav id="iMenu">
                 <ul>
-            <li class="ativo" onmouseover="mudaFoto('./imagens/home.png')" 
-            onmouseout="mudaFoto('./imagens/home.png')">
-                <a  class="iNav" href="index.html">Home</a></li>
-            <li onmouseover="mudaFoto('./imagens/experiencia.png')" 
-            onmouseout="mudaFoto('./imagens/home.png')">
-                <a class="iNav" href="experiencia.html">
-                    Experiência</a></li>
-                <li onmouseover="mudaFoto('./imagens/skills.png')" 
-                onmouseout="mudaFoto('./imagens/home.png')">
-                <a class="iNav" href="hard-skills.html">
-                    Hard Skills</a></li>
-            <li onmouseover="mudaFoto('./imagens/softskills.png')" 
-            onmouseout="mudaFoto('./imagens/home.png')">
-                <a class="iNav" href="soft-skills.html">
-                    Soft Skills</a></li>
-            <li onmouseover="mudaFoto('./imagens/mim.png')"
-             onmouseout="mudaFoto('./imagens/home.png')">
-                <a class="iNav" href="metas.html">
-                    Projetos</a></li>
-            <li onmouseover="mudaFoto('./imagens/formacad.png')" 
-            onmouseout="mudaFoto('./imagens/home.png')">
-                <a class="iNav" href="formacao-academica.html">
-                    Formação acadêmica</a></li>
-            <li onmouseover="mudaFoto('./imagens/curriculo.png')" 
-            onmouseout="mudaFoto('./imagens/home.png')">
-                <a class="iNav"href="curriculo.html">
-                    Currículo</a></li>
-            </ul>
+                    <li class="ativo" onmouseover="mudaFoto('./imagens/home.png')" onmouseout="mudaFoto('./imagens/home.png')">
+                        <a class="iNav" href="index.html">Home</a></li>
+                    <li onmouseover="mudaFoto('./imagens/experiencia.png')" onmouseout="mudaFoto('./imagens/home.png')">
+                        <a class="iNav" href="experiencia.html">Experiência</a></li>
+                    <li onmouseover="mudaFoto('./imagens/skills.png')" onmouseout="mudaFoto('./imagens/home.png')">
+                        <a class="iNav" href="hard-skills.html">Hard Skills</a></li>
+                    <li onmouseover="mudaFoto('./imagens/softskills.png')" onmouseout="mudaFoto('./imagens/home.png')">
+                        <a class="iNav" href="soft-skills.html">Soft Skills</a></li>
+                    <li onmouseover="mudaFoto('./imagens/mim.png')" onmouseout="mudaFoto('./imagens/home.png')">
+                        <a class="iNav" href="metas.html">Projetos</a></li>
+                    <li onmouseover="mudaFoto('./imagens/formacad.png')" onmouseout="mudaFoto('./imagens/home.png')">
+                        <a class="iNav" href="formacao-academica.html">Formação acadêmica</a></li>
+                    <li onmouseover="mudaFoto('./imagens/curriculo.png')" onmouseout="mudaFoto('./imagens/home.png')">
+                        <a class="iNav" href="curriculo.html">Currículo</a></li>
+                </ul>
             </nav>
-    </div>
+        </div>
     </header>
 </article>
 <body>
-        <section id="iCorpo" class="container">
-    <div id="iInterface" class="container">
-        <div class="topo">
-        <h1 class="exp" >Bem-vindo</h1>
-        <img id="iIcone" src="./imagens/home.png" >
-        <p class="topo">📢 Analista e Desenvolvedor Web | Mobile Full-Stack, integrando visão analítica e habilidades técnicas para entregar soluções completas 📢</p>
-        </div> 
-    <div class="containerBody"> 
-    <div class="fundoImgIndex">
-        <div>
-        <img class="coreImg" src="./imagens/indexPerfil.PNG">
+    <section id="iCorpo" class="container">
+        <div id="iInterface" class="container">
+            <div class="topo">
+                <h1 class="exp">Bem-vindo</h1>
+                <!-- Visit counter -->
+                <div id="counter">Carregando visitas...</div>
+                <img id="iIcone" src="./imagens/home.png">
+                <p class="topo">📢 Analista e Desenvolvedor Web | Mobile Full-Stack, integrando visão analítica e habilidades técnicas para entregar soluções completas 📢</p>
+            </div> 
+            <div class="containerBody"> 
+                <div class="fundoImgIndex">
+                    <div>
+                        <img class="coreImg" src="./imagens/indexPerfil.PNG">
+                    </div>
+                    <div class="itemTexto">
+                        <p class="textoIndex">“Meu objetivo é desenvolver projetos que gerem excelentes resultados,
+                             sempre priorizando valores dinâmicos, adquirindo novos conhecimentos e compartilhando expertise,
+                            ao mesmo tempo em que demonstro alto desempenho por meio das habilidades adquiridas.”</p><br>
+                    </div>
+                </div>
+                <div class="resumo">
+                    <h3>Resumo Profissional</h3>
+                    <p>Iniciei minha trajetória na área de Tecnologia da Informação atuando diretamente 
+                    no atendimento ao cliente, por meio de ligações e gestão de chamados.<br>
+                     Essa experiência inicial foi fundamental para desenvolver habilidades de comunicação,
+                     empatia e eficiência no suporte técnico, além de consolidar minha compreensão sobre a
+                     importância da experiência do usuário.<br>
+                    Desde então, venho aprimorando minha formação por meio de certificações voltadas à satisfação do cliente,
+                     à conformidade com a LGPD, à qualidade no atendimento e à priorização estratégica de chamados — sempre com foco
+                     no desenvolvimento de competências interpessoais adquiridas em treinamentos, grupos de trabalho e vivência profissional.<br><br>
+                    Atualmente, sou graduando em Sistemas de Informação e também possuo formação técnica em Desenvolvimento Web, o que amplia
+                     minha capacidade de compreender e aplicar soluções tecnológicas alinhadas às necessidades corporativas. Tenho familiaridade
+                     com ambientes empresariais, práticas de conformidade (compliance) e o uso eficiente de plataformas digitais que otimizam processos 
+                     e promovem agilidade na entrega de valor.<br>
+                    Comprometido com aprendizado contínuo e melhoria constante, busco contribuir de forma ética, estratégica e proativa para os 
+                    resultados da equipe e da empresa.</p><br>
+                </div>
+            </div>
         </div>
-        <div class="itemTexto">
-        <p class="textoIndex">“Meu objetivo é desenvolver projetos que gerem excelentes resultados,
-             sempre priorizando valores dinâmicos, adquirindo novos conhecimentos e compartilhando expertise,
-            ao mesmo tempo em que demonstro alto desempenho por meio das habilidades adquiridas.”</p><br>
+    </section>
+    <footer>
+        <div id="iFooter">
+            <a href="https://github.com/dfernan6" target="_blank"><img class="cImgContato" src="./imagens/github.png" id="iGithub" alt="github.com/dfernan6"></a>
+            <a href="https://www.linkedin.com/in/dfernan6/" target="_blank"><img class="cImgContato" src="./imagens/linkedin.png" id="iLinkedin"></a>
+            <a href="https://wa.me/5516997941722" target="_blank"><img class="cImgContato" src="./imagens/whatsapp.png" id="iWhatsapp"></a>
+            <a href="mailto:danilo.afernandes@outlook.com" target="_blank"><img class="cImgContato" src="./imagens/email.png" id="iEmail"></a>
+            <a href="https://www.facebook.com/danilo.fernandes.5836/"><img class="cImgFacebook" src="./imagens/facebook.png" id="iFaceBook"></a>
+            <p id=iFooter>&copy <i>Editado por <b>Danilo Fernandes</b></i></p>
         </div>
-    </div>
-    <div class="resumo">
-        <h3>Resumo Profissional</h3>
-    <p>Iniciei minha trajetória na área de Tecnologia da Informação atuando diretamente 
-no atendimento ao cliente, por meio de ligações e gestão de chamados.<br>
- Essa experiência inicial foi fundamental para desenvolver habilidades de comunicação,
- empatia e eficiência no suporte técnico, além de consolidar minha compreensão sobre a
- importância da experiência do usuário.<br>
-Desde então, venho aprimorando minha formação por meio de certificações voltadas à satisfação do cliente,
- à conformidade com a LGPD, à qualidade no atendimento e à priorização estratégica de chamados — sempre com foco
- no desenvolvimento de competências interpessoais adquiridas em treinamentos, grupos de trabalho e vivência profissional.<br><br>
-Atualmente, sou graduando em Sistemas de Informação e também possuo formação técnica em Desenvolvimento Web, o que amplia
- minha capacidade de compreender e aplicar soluções tecnológicas alinhadas às necessidades corporativas. Tenho familiaridade
- com ambientes empresariais, práticas de conformidade (compliance) e o uso eficiente de plataformas digitais que otimizam processos 
- e promovem agilidade na entrega de valor.<br>
-Comprometido com aprendizado contínuo e melhoria constante, busco contribuir de forma ética, estratégica e proativa para os 
-resultados da equipe e da empresa.</p><br>
-</div>
-</div>
-</section>
-<footer>
-    <div id="iFooter" >
-<a href="https://github.com/dfernan6" target="_blank">
-    <img class="cImgContato" src="./imagens/github.png"
-     id="iGithub" alt="github.com/dfernan6"></a>
-<a href="https://www.linkedin.com/in/dfernan6/"
- target="_blank"><img class ="cImgContato" src="./imagens/linkedin.png"
-  id="iLinkedin"></a>
-  <a href="https://wa.me/5516997941722" target="_blank">
-  <img class="cImgContato" src="./imagens/whatsapp.png"
- id="iWhatsapp"></a>
-<a href="mailto:danilo.afernandes@outlook.com" target="_blank">
-<img class="cImgContato" src="./imagens/email.png" id="iEmail"></a>
-<a href="https://www.facebook.com/danilo.fernandes.5836/" >
-<img class="cImgFacebook" src="./imagens/facebook.png" id="iFaceBook"
-class="cFooter" target="_blank"></a>
-<p id=iFooter >&copy <i>Editado por <b>Danilo Fernandes<br></b></i></p><br>
-</div>
-</footer>
-<script language="javascript" src="funcoes.js"></script> 
+    </footer>
+    <script language="javascript" src="funcoes.js"></script> 
+
+    <!-- Firebase Visit Counter Script -->
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyA_aNzHRxZl3f6CY0ay6L_MjKR43XSvmnI",
+    authDomain: "portfolio-929ce.firebaseapp.com",
+    projectId: "portfolio-929ce",
+    storageBucket: "portfolio-929ce.firebasestorage.app",
+    messagingSenderId: "585390882902",
+    appId: "1:585390882902:web:6bd9ebaab20dad952f7bf7",
+    measurementId: "G-G5DJQB9FCP"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+  const counterRef = db.collection("portfolio").doc("main");
+
+  // Increment counter on every visit
+  counterRef.update({
+    count: firebase.firestore.FieldValue.increment(1)
+  });
+
+  // Show counter only if ?admin=1
+  const el = document.getElementById("counter");
+  const params = new URLSearchParams(window.location.search);
+  const isAdminView = params.get("admin") === "1";
+
+  if (isAdminView) {
+    counterRef.get().then(doc => {
+      if (doc.exists) {
+        el.style.display = "block";
+        el.textContent = "Visits: " + doc.data().count;
+      }
+    }).catch(err => {
+      console.error("Read blocked by rules:", err);
+    });
+  }
+</script>
 </body>
 </html>
