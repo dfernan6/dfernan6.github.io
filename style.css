@@ -262,14 +262,28 @@ img#sos {
 }
 
 article {
-    width: 100%;
-    position: flex;
-    z-index: 1000;
-    margin: auto;
-    flex-wrap: wrap;
-    overflow: auto;
+  width: 100%;
+  margin: auto;
+  flex-wrap: wrap;
+  overflow: auto;
+  border: 2px solid white;
+  animation: borderGlow 3s infinite alternate;
 }
 
+@keyframes borderGlow {
+  0% {
+    border-color: white;
+    box-shadow: 0 0 5px white, 0 0 10px white;
+  }
+  50% {
+    border-color: #00e8ff;
+    box-shadow: 0 0 10px #00e8ff, 0 0 20px #00e8ff;
+  }
+  100% {
+    border-color: white;
+    box-shadow: 0 0 5px white, 0 0 15px #00e8ff;
+  }
+}
 
 .descricao {
     max-width: 400px;
@@ -539,21 +553,22 @@ img.languages:hover {
     display: block;
 }
 
-
 .video-wrapper {
   position: relative;
   display: inline-block;
   border-radius: 12px;
+  border: solid;
   overflow: hidden;
   transition: all 0.4s ease;
+  animation: bgCycle 6s infinite alternate;
 }
 
-.video-wrapper {
-  position: relative;
-  display: inline-block;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: all 0.4s ease;
+/* Keyframes for background color cycling */
+@keyframes bgCycle {
+  0%   { background-color: white; }
+  33%  { background-color: #00e8ff; }   /* light cyan/blue */
+  66%  { background-color: #082688; }   /* dark navy blue */
+  100% { background-color: white; }
 }
 
 .video-wrapper video {
