@@ -262,7 +262,6 @@ img#sos {
 }
 
 article {
-  width: 100%;
   margin: auto;
   flex-wrap: wrap;
   overflow: auto;
