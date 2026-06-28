@@ -377,21 +377,22 @@ function render() {
           </nav>
           
           <div class="controls">
-            <button class="mobile-menu-button" onclick="toggleMobileMenu()">
-              ${state.mobileMenuOpen ? '✕' : '☰'}
-            </button>
-          </div>
-        
-          <nav class="nav-mobile ${state.mobileMenuOpen ? 'open' : ''}">
-            ${navItems.map(item => `
-              <button class="nav-button ${state.currentPage === item.id ? 'active' : ''}" 
-                      onclick="navigateTo('${item.id}')">
-                <span>${item.icon}</span>
-                <span>${translations[item.id][state.language]}</span>
-              </button>
-            `).join('')}
-          </nav>
-        </div>
+  <button class="mobile-menu-button" onclick="toggleMobileMenu()">
+    ${state.mobileMenuOpen ? '✕' : '☰'}
+  </button>
+</div>
+
+<nav class="nav-mobile ${state.mobileMenuOpen ? 'open' : ''}">
+  ${navItems.map(item => `
+    <button 
+      class="nav-button ${state.currentPage === item.id ? 'active' : ''}" 
+      onclick="navigateTo('${item.id}')"
+      title="${translations[item.id][state.language]}">
+      ${item.icon}
+    </button>
+  `).join('')}
+</nav>
+</div>
       </header>
       
       <main>
