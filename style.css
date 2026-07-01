@@ -729,3 +729,27 @@ a {
   font-optical-sizing: auto;
   font-weight: 400;
 }
+
+.footer-icons a {
+  text-decoration: none;
+  color: #c9c9c9;       /* cor padrão */
+  font-size: 1.5rem;
+  margin: 0 8px;
+  transition: color 0.3s;
+}
+
+.footer-icons a.github:hover {
+  color: #ffffff;       /* branco para GitHub */
+}
+
+.footer-icons a.linkedin:hover {
+  color: #0a66c2;       /* azul LinkedIn */
+}
+
+.footer-icons a.whatsapp:hover {
+  color: #25d366;       /* verde WhatsApp */
+}
+
+.footer-icons a.email:hover {
+  color: #6c757d;       /* cinza para Email */
+}
