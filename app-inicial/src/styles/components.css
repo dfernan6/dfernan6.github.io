@@ -1,0 +1,10 @@
+.botao {
+    @apply bg-blue-500 text-white;
+    @apply hover:bg-blue-600;
+    @apply rounded-md px-5 py-2;
+}
+
+.entrada {
+    @apply text-white outline-none;
+    @apply rounded-md border border-blue-500;
+}
