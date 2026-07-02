@@ -9,15 +9,21 @@ document.getElementById("language-select").addEventListener("change", (e) => {
 // Dark mode toggle
 document.addEventListener('DOMContentLoaded', () => {
   const toggleButton = document.getElementById("toggle-theme");
-  if (toggleButton) {
-    toggleButton.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-      toggleButton.textContent = document.body.classList.contains("dark-mode")
-        ? "☀️ Light Mode"
-        : "🌙 Dark Mode";
-    });
-  }
+  const icon = toggleButton.querySelector("i");
+
+  toggleButton.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    toggleButton.classList.toggle("active");
+
+    // Swap icon class
+    if (document.body.classList.contains("dark-mode")) {
+      icon.classList.replace("bi-moon", "bi-sun");
+    } else {
+      icon.classList.replace("bi-sun", "bi-moon");
+    }
+  });
 });
+
 
 function updateGradient() {
   const scrollTop = window.scrollY;

@@ -148,12 +148,6 @@ header {
             }
         }
 
-        @media (max-width: 447px) {
-            .header-container {
-                height: 84px;
-            }
-        }
-
         .nav-button {
             display: flex;
             align-items: center;
@@ -752,4 +746,16 @@ a {
 
 .footer-icons a.email:hover {
   color: #6c757d;       /* cinza para Email */
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: gray;   /* default */
+  cursor: pointer;
+}
+
+.btn-icon.active {
+  color: white;  /* dark mode active */
 }
