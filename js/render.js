@@ -4,7 +4,7 @@ function renderHomePage() {
     <div class="space-y-8">
       <div class="text-center">
         <div >
-          <img class="hero-avatar" src="../assets/images/eu.png" alt="Avatar de Danilo" class="avatar-image" draggable="false">
+          <img class="hero-avatar" src="../assets/images/indexPerfil.PNG" alt="Avatar de Danilo" class="avatar-image" draggable="false">
         </div>
         <h1 class="hero-title">${page.title}</h1>
         <p class="hero-subtitle">${page.subtitle}</p>
