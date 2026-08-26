@@ -101,9 +101,9 @@ const translationsExperiencia = {
       },
       period: { pt: "Abril 2023 - Junho 2024", en: "April 2023 - June 2024", de: "April 2023 - Juni 2024" },
       details: {
-        pt: "🎯 Abertura de tickets no Movidesk.<br>🎯 Correções em ERP.<br>🎯 ServiceNow para acessos e redefinições de senha.",
-        en: "🎯 Ticket creation in Movidesk.<br>🎯 ERP corrections.<br>🎯 ServiceNow for access and password resets.",
-        de: "🎯 Ticket-Erstellung in Movidesk.<br>🎯 ERP-Korrekturen.<br>🎯 ServiceNow für Zugänge und Passwortzurücksetzungen."
+        pt: "🎯 Instruções e resoluções de chamados no Movidesk.<br>🎯 Correções no ERP corporativo.<br>🎯 ServiceNow para acessos e redefinições de senha.",
+        en: "🎯 Instructions and resolutions for tickets in Movidesk.<br>🎯 ERP corrections.<br>🎯 ServiceNow for access and password resets.",
+        de: "🎯 Anweisungen und Lösungen für Tickets in Movidesk.<br>🎯 ERP-Korrekturen.<br>🎯 ServiceNow für Zugänge und Passwortzurücksetzungen."
       }
     },
     {
@@ -129,9 +129,9 @@ const translationsExperiencia = {
       },
       period: { pt: "Outubro 2018 - Abril 2021", en: "October 2018 - April 2021", de: "Oktober 2018 - April 2021" },
       details: {
-        pt: "🎯 Atendimento via ServiceNow.<br>🎯 Active Directory e Software Center.<br>🎯 Configuração de VPN.",
-        en: "🎯 Support via ServiceNow.<br>🎯 Active Directory and Software Center.<br>🎯 VPN configuration.",
-        de: "🎯 Support über ServiceNow.<br>🎯 Active Directory und Software Center.<br>🎯 VPN-Konfiguration."
+        pt: "🎯 Atendimento e atriuições de chamaos via ServiceNow.<br>🎯 Interatividades pelo Active Directory e Software Center.<br>🎯 Configuração de VPN.",
+        en: "🎯 Support and assignment of tickets via ServiceNow.<br>🎯 Interactions through Active Directory and Software Center.<br>🎯 VPN configuration.",
+        de: "🎯 Support und Zuweisung von Tickets über ServiceNow.<br>🎯 Interaktionen über Active Directory und Software Center.<br>🎯 VPN-Konfiguration."
       }
     }
   ],
@@ -139,9 +139,9 @@ const translationsExperiencia = {
     {
       company: "Web Developer",
       details: {
-        pt: "📈 Melhoria de desempenho.<br>🎯 Foco em usabilidade.<br>🔧 Manutenção e evolução.<br>📊 Documentação e versionamento.<br>🤝 Trabalho em equipe.",
-        en: "📈 Performance improvement.<br>🎯 Focus on usability.<br>🔧 Maintenance and evolution.<br>📊 Documentation and versioning.<br>🤝 Teamwork.",
-        de: "📈 Leistungsverbesserung.<br>🎯 Fokus auf Benutzerfreundlichkeit.<br>🔧 Wartung und Weiterentwicklung.<br>📊 Dokumentation und Versionierung.<br>🤝 Teamarbeit."
+        pt: " Sempre buscando aprimorar minhas habilidades técnicas e criativas, atuo como desenvolvedor web em projetos autônomos, aplicando conhecimentos em HTML, CSS, JavaScript, React e outras tecnologias para criar soluções digitais eficientes e inovadoras.",
+        en: " I am always looking to improve my technical and creative skills, and I work as a web developer on autonomous projects, applying knowledge in HTML, CSS, JavaScript, React and other technologies to create efficient and innovative digital solutions.",
+        de: " Ich suche immer danach, meine technischen und kreativen Fähigkeiten zu verbessern, und arbeite als Webentwickler an eigenständigen Projekten, wobei ich Kenntnisse in HTML, CSS, JavaScript, React und anderen Technologien anwende, um effiziente und innovative digitale Lösungen zu erstellen."
       }
     },
     {
