@@ -139,11 +139,9 @@ const translationsExperiencia = {
     {
       company: "Web Developer",
       details: {
-        pt: " Sempre buscando aprimorar minhas habilidades técnicas e criativas, atuo como desenvolvedor web em projetos autônomos, aplicando conhecimentos em HTML, CSS, JavaScript, React e outras tecnologias para criar soluções digitais eficientes e inovadoras.",
-        en: " I am always looking to improve my technical and creative skills, and I work as a web developer on autonomous projects, applying knowledge in HTML, CSS, JavaScript, React and other technologies to create efficient and innovative digital solutions.",
-        pt: "📈 Melhoria de desempenho.<br>🎯 Foco em usabilidade.<br>🔧 Manutenção e evolução.<br>📊 Documentação e versionamento.<br>🤝 Trabalho em equipe.",
-        en: "📈 Performance improvement.<br>🎯 Focus on usability.<br>🔧 Maintenance and evolution.<br>📊 Documentation and versioning.<br>🤝 Teamwork.",
-        de: "📈 Leistungsverbesserung.<br>🎯 Fokus auf Benutzerfreundlichkeit.<br>🔧 Wartung und Weiterentwicklung.<br>📊 Dokumentation und Versionierung.<br>🤝 Teamarbeit."
+        pt: " Sempre buscando aprimorar minhas habilidades técnicas e criativas, atuo como desenvolvedor web em projetos autônomos, aplicando conhecimentos em HTML, CSS, JavaScript, React e outras tecnologias para criar soluções digitais eficientes e inovadoras.<br>📈 Melhoria de desempenho.<br>🎯 Foco em usabilidade.<br>🔧 Manutenção e evolução.<br>📊 Documentação e versionamento.<br>🤝 Trabalho em equipe.",
+        en: " I am always looking to improve my technical and creative skills, and I work as a web developer on autonomous projects, applying knowledge in HTML, CSS, JavaScript, React and other technologies to create efficient and innovative digital solutions.<br>📈 Performance improvement.<br>🎯 Focus on usability.<br>🔧 Maintenance and evolution.<br>📊 Documentation and versioning.<br>🤝 Teamwork.",
+        de: " Ich bin stets bestrebt, meine technischen und kreativen Fähigkeiten zu verbessern, und arbeite als Webentwickler an autonomen Projekten, wobei ich Kenntnisse in HTML, CSS, JavaScript, React und anderen Technologien anwende, um effiziente und innovative digitale Lösungen zu schaffen.<br>📈 Leistungsverbesserung.<br>🎯 Fokus auf Benutzerfreundlichkeit.<br>🔧 Wartung und Weiterentwicklung.<br>📊 Dokumentation und Versionierung.<br>🤝 Teamarbeit."
       }
     },
     {
